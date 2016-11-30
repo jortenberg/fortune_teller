@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Furtune Teller</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <div id="center">
+            <h2>Hello, pick a color</h2>
+
+            <div id="container">
+                <svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
+                  <g id="red">
+                    <path fill="#D41F30" d="M152.787 152.74H15L0 0"/>
+                    <path fill="#EC2127" d="M0 0l152.787 15v137.74"/>
+                  </g>
+                  <g id="purple" data-letters="6">
+                    <path fill="#8F64AA" d="M152.787 152.74H15.084l-15 152.74"/>
+                    <path fill="#A771B0" d="M.084 305.48l152.703-15V152.74"/>
+                  </g>
+                  <g id="blue">
+                    <path fill="#0195CC" d="M152.787 152.74h137.787l15-152.74"/>
+                    <path fill="#15A3DD" d="M305.574 0L152.787 15v137.74"/>
+                  </g>
+                  <g id="green">
+                    <path fill="#00AE4C" d="M152.787 152.74H290.49l15 152.74"/>
+                    <path fill="#42B760" d="M305.49 305.48l-152.703-15V152.74"/>
+                  </g>
+                  <g id="inside">
+                    <path id="redshadow" fill="#bc1127" d="M153.357 14.666v137.74H15.54"/>
+                    <path id="purpleshadow" fill="#715391" d="M153.357 290.145V152.407H15.625"/>
+                    <path id="blueshadow" fill="#0080b3" d="M153.357 14.666v137.74h137.457"/>
+                    <path id="greenshadow" fill="#009542" d="M153.357 290.145V152.407H290.73"/>
+                  </g>
+                </svg>
+
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 74">
+                <g>
+                    <rect id="rectangle" fill="#00AE4C" width="177" height="74"/>
+                </g>
+                </svg>
+
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154.9 142.3">
+                    <polygon id="poly" fill="#C7B299" points="123.3,134.1 45.8,142.3 0,79.3 31.6,8.2 109.1,0 154.9,63 "/>
+                </svg>
+            </div> 
+
+
+
+        </div>
+
+    <!-- always use attr:{} if you want to animate a svg attribute because by default GSAP will assume its a css property first.
+        or to be really anal always use this specifice syntax css:{} or attr:{} 
+        example
+        .to(svgDot, 0.7, {attr:{cx: 100, cy: 100}, ease:Power2.easeInOut}, '-=0.7')-->
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+
+        <!--CDN link for  TweenMax-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+
+            $(document).ready(function() {
+                var rectangle = $("#rectangle"),
+                    poly = $("#poly"),
+                    wholeThing = $("#wholething"),
+                    red = $("#red"),
+                    inside = $("#inside"),
+                    masterTl = new TimelineMax(),
+                    color;
+
+                function sideways() {
+                    var tl = new TimelineMax();
+                        tl.fromTo(inside, .8, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1})
+                        tl.to(inside, .8, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9});
+                    return tl;
+                }
+
+                function sidewaysHalf() {
+                    var tl = new TimelineMax();
+                        tl.fromTo(inside, .8, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1});
+                    return tl;
+                }
+
+                function upDown() {
+                    var tl = new TimelineMax();
+                        tl.fromTo(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1})
+                        tl.to(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9});
+                    return tl;
+                }
+
+                function upDownHalf() {
+                    var tl = new TimelineMax();
+                        tl.fromTo(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1});
+                    return tl;
+                }
+
+                function addFirstIcons() {
+                    // var tl = new TimelineMax();
+                    return console.log("hello");
+                    // return tl;
+                }
+
+    
+
+                CSSPlugin.defaultSmoothOrigin = true;
+
+
+                $('#red').on('click', function() {
+                    // debugger;
+                    color = 'red'//$(this).attr('id');
+                    var redTl = new TimelineMax();
+
+                    redTl
+                        .add( upDown() )
+                        .add( sideways() )
+                        .add( upDown() )
+                        .call( addFirstIcons );  // Tess is amazing & hungry
+                });
+
+                
+
+                // $('#btnPurple').on('click', function() {
+                //     var number = color.length / 2
+                //     tl.play();
+                //  });
+
+                // click on color
+                // function runs cycle the amount of letters in color
+                // ends in open state
+                // a 1st set of icons populate the inside
+                // click on icon
+                // function runs cycle the amount of letters in the icon
+                // ends in open state
+                // a 2nd set of icons populalates the inside
+                // click on icon
+                // function runs cycle the amount of letters in the icon
+                // ends in closed state
+                // twirls really fast
+                // fades to vanish
+                // pops or fades in "Color" + "icon1" + "icon2" =
+                // fortune pops or fades in "fortune"
+
+
+
+
+
+            });
+          
+        </script>
+    </body>
+</html>
