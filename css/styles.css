@@ -95,30 +95,36 @@ textarea {
    Author's custom styles
    ========================================================================== */
 body {
-  background-color: #1d1d1d;
-  color: #999;
-  font-family: Arial, sans-serif;
-  margin-left:18px;
+  background-color: #394450;
+  color: #ffffff;
+  font-family: "filson-soft", sans-serif;
+  margin-left: 18px;
 }
+
 strong {
   color: #DDD;
 }
+
+h1 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.8em;
+  text-align: center;
+  line-height: 1.2em;
+  margin: 20% auto;
+}
+
 h2 {
-  font-size:3em;
-  line-height:1em;
-  margin-bottom:0.1em;
-  color: white;
-  font-weight: 400;
+  font-size: 2em;
+  line-height: 1em;
+  margin-bottom: 0.1em;
+  font-weight: 300;
   margin-top: 5px;
 }
 a, a:hover, a:visited {
   color:#71B200;
 }
-.container {
-  border: 1px solid #666666;
-  overflow: hidden;
-  background:black;
-}
+
 .demo {
   display: table;
   font-family: monospace;
@@ -128,6 +134,14 @@ a, a:hover, a:visited {
   padding-right: 18px;
   position: relative;
   text-align: center;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }
 #divRectangle {
   position: absolute;
@@ -158,6 +172,18 @@ button#play {
 }
 
 #inside {
+  visibility: hidden;
+}
+
+#wholething {
+  visibility: hidden;
+}
+
+#rectangle {
+  visibility: hidden;
+}
+
+#mainSubhead {
   visibility: hidden;
 }
 

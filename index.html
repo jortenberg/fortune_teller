@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/styles.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://use.typekit.net/qzt6yny.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -20,9 +22,13 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
+        <div class="centered">
+            <h1>Hello.</h1>
+            <h1>Welcome to Fortune Teller!</h1>
+        </div>
 
-        <div id="center">
-            <h2>Hello, pick a color</h2>
+        <div class="centered">
+            <h2 id="mainSubhead">Hello, pick a color</h2>
 
             <div id="container">
                 <svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
@@ -56,12 +62,7 @@
                 </g>
                 </svg>
 
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154.9 142.3">
-                    <polygon id="poly" fill="#C7B299" points="123.3,134.1 45.8,142.3 0,79.3 31.6,8.2 109.1,0 154.9,63 "/>
-                </svg>
             </div> 
-
-
 
         </div>
 
@@ -87,6 +88,7 @@
                     wholeThing = $("#wholething"),
                     red = $("#red"),
                     inside = $("#inside"),
+                    mainSubhead = $("#mainSubhead"),
                     masterTl = new TimelineMax(),
                     color;
 
@@ -105,8 +107,9 @@
 
                 function upDown() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1})
-                        tl.to(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9});
+                        tl.fromTo(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, 
+                            {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power1.easeIn})
+                        tl.to(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power1.easeIn});
                     return tl;
                 }
 
@@ -118,18 +121,17 @@
 
                 function addFirstIcons() {
                     // var tl = new TimelineMax();
-                    return console.log("hello Test from github");
+                    return console.log("hello Test from github" + " " + color);
                     // return tl;
                 }
-
-    
+                
 
                 CSSPlugin.defaultSmoothOrigin = true;
 
 
                 $('#red').on('click', function() {
                     // debugger;
-                    color = 'red'//$(this).attr('id');
+                    color = 'red';//$(this).attr('id');
                     var redTl = new TimelineMax();
 
                     redTl
@@ -138,6 +140,20 @@
                         .add( upDown() )
                         .call( addFirstIcons );  // Tess is amazing & hungry
                 });
+
+                $('#blue').on('click', function() {
+                    // debugger;
+                    color = 'blue';//$(this).attr('id');
+                    var blueTl = new TimelineMax();
+
+                    blueTl
+                        .add( upDownHalf() )
+                        .call( addFirstIcons );  // Tess is amazing & hungry
+                });
+
+                masterTl
+                    .set(wholeThing, {autoAlpha: 0})
+                    .set(mainSubhead, {autoAlpha: 0});
 
                 
 
