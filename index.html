@@ -28,7 +28,7 @@
         </div>
 
         <div class="centered">
-            <h2 id="mainSubhead">Hello, pick a color</h2>
+            <h2 id="mainSubhead">Pick a color</h2>
 
             <div id="container">
                 <svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
@@ -56,12 +56,6 @@
                   </g>
                 </svg>
 
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 177 74">
-                <g>
-                    <rect id="rectangle" fill="#00AE4C" width="177" height="74"/>
-                </g>
-                </svg>
-
             </div> 
 
         </div>
@@ -83,8 +77,7 @@
         <script>
 
             $(document).ready(function() {
-                var rectangle = $("#rectangle"),
-                    poly = $("#poly"),
+                var h1 = $("h1"),
                     wholeThing = $("#wholething"),
                     red = $("#red"),
                     inside = $("#inside"),
@@ -138,7 +131,7 @@
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
-                        .call( addFirstIcons );  // Tess is amazing & hungry
+                        .call( addFirstIcons );  // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
                 $('#blue').on('click', function() {
@@ -153,7 +146,10 @@
 
                 masterTl
                     .set(wholeThing, {autoAlpha: 0})
-                    .set(mainSubhead, {autoAlpha: 0});
+                    .set(mainSubhead, {autoAlpha: 0})
+                    .to(h1, .5, {y: -10, delay: 3, autoAlpha: 0, ease:Power4.easeInOut})
+                    .to(mainSubhead, .5, {autoAlpha: 1, ease:Power4.easeIn})
+                    .to(wholeThing, .5, {autoAlpha: 1, ease:Power4.easeIn}, '-=0.5');
 
                 
 

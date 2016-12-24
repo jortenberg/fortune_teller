@@ -107,7 +107,7 @@ strong {
 
 h1 {
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 2.8em;
   text-align: center;
   line-height: 1.2em;
@@ -115,12 +115,13 @@ h1 {
 }
 
 h2 {
-  font-size: 2em;
-  line-height: 1em;
-  margin-bottom: 0.1em;
-  font-weight: 300;
-  margin-top: 5px;
+  font-size: 2.8em;
+  line-height: 1.2em;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 5%;
 }
+
 a, a:hover, a:visited {
   color:#71B200;
 }
@@ -176,10 +177,6 @@ button#play {
 }
 
 #wholething {
-  visibility: hidden;
-}
-
-#rectangle {
   visibility: hidden;
 }
 
