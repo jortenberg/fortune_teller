@@ -87,28 +87,28 @@
 
                 function sideways() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .8, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1})
-                        tl.to(inside, .8, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9});
+                        tl.fromTo(inside, .4, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
+                        tl.to(inside, .4, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function sidewaysHalf() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .8, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1});
+                        tl.fromTo(inside, .4, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function upDown() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, 
-                            {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power1.easeIn})
-                        tl.to(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power1.easeIn});
+                        tl.fromTo(inside, .4, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, 
+                            {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
+                        tl.to(inside, .4, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function upDownHalf() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .8, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1});
+                        tl.fromTo(inside, .4, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
@@ -130,26 +130,55 @@
                     redTl
                         .add( upDown() )
                         .add( sideways() )
-                        .add( upDown() )
+                        .add( upDownHalf() )
                         .call( addFirstIcons );  // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
+                $('#purple').on('click', function() {
+                    color = 'purple';
+                    var purpleTl = new TimelineMax();
+
+                    purpleTl
+                        .add( upDown() )
+                        .add( sideways() )
+                        .add( upDown() )
+                        .add( sideways() )
+                        .add( upDown() )
+                        .add( sidewaysHalf() )
+                        .call( addFirstIcons );
+                });
+
                 $('#blue').on('click', function() {
-                    // debugger;
-                    color = 'blue';//$(this).attr('id');
+                    color = 'blue';
                     var blueTl = new TimelineMax();
 
                     blueTl
+                        .add( upDown() )
+                        .add( sideways() )
+                        .add( upDown() )
+                        .add( sidewaysHalf() )
+                        .call( addFirstIcons );
+                });
+
+                $('#green').on('click', function() {
+                    color = 'green';
+                    var greenTl = new TimelineMax();
+
+                    greenTl
+                        .add( upDown() )
+                        .add( sideways() )
+                        .add( upDown() )
+                        .add( sideways() )
                         .add( upDownHalf() )
-                        .call( addFirstIcons );  // Tess is amazing & hungry
+                        .call( addFirstIcons );
                 });
 
                 masterTl
                     .set(wholeThing, {autoAlpha: 0})
                     .set(mainSubhead, {autoAlpha: 0})
-                    .to(h1, .5, {y: -10, delay: 3, autoAlpha: 0, ease:Power4.easeInOut})
-                    .to(mainSubhead, .5, {autoAlpha: 1, ease:Power4.easeIn})
-                    .to(wholeThing, .5, {autoAlpha: 1, ease:Power4.easeIn}, '-=0.5');
+                    .to(h1, .3, {y: -8, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
+                    .to(mainSubhead, .5, {y: 16, delay: .8, autoAlpha: 1, ease:Power3.easeOut})
+                    .to(wholeThing, .5, {y: 16, autoAlpha: 1, ease:Power3.easeOut}, '-=0.5');
 
                 
 
