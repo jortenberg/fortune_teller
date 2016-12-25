@@ -87,28 +87,28 @@
 
                 function sideways() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .4, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
-                        tl.to(inside, .4, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
+                        tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function sidewaysHalf() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .4, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function upDown() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .4, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, 
+                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, 
                             {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
-                        tl.to(inside, .4, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
+                        tl.to(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function upDownHalf() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .4, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
@@ -176,9 +176,9 @@
                 masterTl
                     .set(wholeThing, {autoAlpha: 0})
                     .set(mainSubhead, {autoAlpha: 0})
-                    .to(h1, .3, {y: -8, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
-                    .to(mainSubhead, .5, {y: 16, delay: .8, autoAlpha: 1, ease:Power3.easeOut})
-                    .to(wholeThing, .5, {y: 16, autoAlpha: 1, ease:Power3.easeOut}, '-=0.5');
+                    .to(h1, .3, {y: -8, delay: 2.5, autoAlpha: 0, ease:Power2.easeIn})
+                    .to(mainSubhead, .5, {y: 16, delay: .8, autoAlpha: 1, ease:Power2.easeOut})
+                    .to(wholeThing, .5, {y: 16, autoAlpha: 1, ease:Power2.easeOut}, '-=0.5');
 
                 
 
