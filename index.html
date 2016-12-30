@@ -17,48 +17,57 @@
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
         <div class="centered">
-            <h1>Hello.</h1>
-            <h1>Welcome to Fortune Teller!</h1>
-        </div>
+                   <h1>Hello.</h1>
+                   <h1>Welcome to Fortune Teller!</h1>
+               </div>
 
-        <div class="centered">
-            <h2 id="mainSubhead">Pick a color</h2>
+               <div class="centered">
+                   <div id="container">
+                       <h2 id="mainSubhead">Pick a color</h2>
+                   
+                       <svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
+                         <g id="red">
+                           <path fill="#D41F30" d="M152.787 152.74H15L0 0"/>
+                           <path fill="#EC2127" d="M0 0l152.787 15v137.74"/>
+                         </g>
+                         <g id="purple" data-letters="6">
+                           <path fill="#8F64AA" d="M152.787 152.74H15.084l-15 152.74"/>
+                           <path fill="#A771B0" d="M.084 305.48l152.703-15V152.74"/>
+                         </g>
+                         <g id="blue">
+                           <path fill="#0195CC" d="M152.787 152.74h137.787l15-152.74"/>
+                           <path fill="#15A3DD" d="M305.574 0L152.787 15v137.74"/>
+                         </g>
+                         <g id="green">
+                           <path fill="#00AE4C" d="M152.787 152.74H290.49l15 152.74"/>
+                           <path fill="#42B760" d="M305.49 305.48l-152.703-15V152.74"/>
+                         </g>
+                         <g id="inside">
+                           <path id="redshadow" fill="#bc1127" d="M153.357 14.666v137.74H15.54"/>
+                           <path id="purpleshadow" fill="#715391" d="M153.357 290.145V152.407H15.625"/>
+                           <path id="blueshadow" fill="#0080b3" d="M153.357 14.666v137.74h137.457"/>
+                           <path id="greenshadow" fill="#009542" d="M153.357 290.145V152.407H290.73"/>
+                         </g>
+                       </svg>
 
-            <div id="container">
-                <svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
-                  <g id="red">
-                    <path fill="#D41F30" d="M152.787 152.74H15L0 0"/>
-                    <path fill="#EC2127" d="M0 0l152.787 15v137.74"/>
-                  </g>
-                  <g id="purple" data-letters="6">
-                    <path fill="#8F64AA" d="M152.787 152.74H15.084l-15 152.74"/>
-                    <path fill="#A771B0" d="M.084 305.48l152.703-15V152.74"/>
-                  </g>
-                  <g id="blue">
-                    <path fill="#0195CC" d="M152.787 152.74h137.787l15-152.74"/>
-                    <path fill="#15A3DD" d="M305.574 0L152.787 15v137.74"/>
-                  </g>
-                  <g id="green">
-                    <path fill="#00AE4C" d="M152.787 152.74H290.49l15 152.74"/>
-                    <path fill="#42B760" d="M305.49 305.48l-152.703-15V152.74"/>
-                  </g>
-                  <g id="inside">
-                    <path id="redshadow" fill="#bc1127" d="M153.357 14.666v137.74H15.54"/>
-                    <path id="purpleshadow" fill="#715391" d="M153.357 290.145V152.407H15.625"/>
-                    <path id="blueshadow" fill="#0080b3" d="M153.357 14.666v137.74h137.457"/>
-                    <path id="greenshadow" fill="#009542" d="M153.357 290.145V152.407H290.73"/>
-                  </g>
-                </svg>
+                       <div class="containerNumbers">
+                           <div id="redNum">
+                               <h3 class="top-left">1</h3>
+                           </div>
+                           <div id="blueNum">
+                               <h3 class="top-right">10</h3>
+                           </div>
+                           <div id="purpleNum">
+                               <h3 class="bottom-left">11</h3>
+                           </div>
+                           <div id="greenNum">
+                               <h3 class="bottom-right">12</h3>
+                           </div>
+                       </div>
+                   </div>
+               </div>
 
-            </div> 
-
-        </div>
 
     <!-- always use attr:{} if you want to animate a svg attribute because by default GSAP will assume its a css property first.
         or to be really anal always use this specifice syntax css:{} or attr:{} 

@@ -98,7 +98,7 @@ body {
   background-color: #394450;
   color: #ffffff;
   font-family: "filson-soft", sans-serif;
-  margin-left: 18px;
+  font-size: 1em;
 }
 
 strong {
@@ -111,7 +111,7 @@ h1 {
   font-size: 2.8em;
   text-align: center;
   line-height: 1.2em;
-  margin: 20% auto;
+/*  margin: 20% auto;*/
 }
 
 h2 {
@@ -119,22 +119,86 @@ h2 {
   line-height: 1.2em;
   text-align: center;
   font-weight: 400;
-  margin-bottom: 5%;
+}
+
+h3 {
+  font-size: 3em;
+  font-weight: 400;
+/*  background-color: rgba(186, 230, 255, 0.4);*/
+  text-align: center;
+  position: absolute;
+  margin: 0;
+  width: 2em;
+}
+
+.top-left {
+  bottom: 8%;
+  right: 0;
+}
+
+.top-right {
+  bottom: 8%;
+  left: 0;
+}
+
+.bottom-left {
+  top: 8%;
+  right: 0;
+}
+
+.bottom-right {
+  top: 8%;
+  left: 0;
 }
 
 a, a:hover, a:visited {
   color:#71B200;
 }
 
-.demo {
-  display: table;
-  font-family: monospace;
-}
-.cell {
-  display: table-cell;
-  padding-right: 18px;
+.containerNumbers {
   position: relative;
-  text-align: center;
+/*  background-color: rgba(153, 153, 153, 0.4);*/
+  width: 100%;
+  height: 350px;
+  margin: 3em auto;
+/*  display: none;*/
+/*  visibility: hidden;*/
+}
+
+.containerSVG {
+
+}
+
+#redNum {
+  width: 50%;
+  height: 50%;
+/*  background-color: #EC2127;*/
+  float: left;
+  position: relative;
+}
+
+#blueNum {
+  width: 50%;
+  height: 50%;
+/*  background-color: #15A3DD;*/
+  float: left;
+  position: relative;
+}
+
+#greenNum {
+  width: 50%;
+  height: 50%;
+/*  background-color: #42B760;*/
+  float: left;
+  position: relative;
+}
+
+#purpleNum {
+  width: 50%;
+  height: 50%;
+/*  background-color: #A771B0;*/
+  float: left;
+  position: relative;
 }
 
 .centered {
@@ -144,43 +208,29 @@ a, a:hover, a:visited {
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
-#divRectangle {
-  position: absolute;
-}
-#divRectangle {
-  background-color: #91e600;
-  width: 220px;
-  height: 80px;
-  top: 60px;
-  left: 18px;
-}
 
-button#play {
- float:right;
-  margin-top:-8px;
-  margin-right:10px;
-}
-
-#nav {
-  width:560px;
-  margin:0px auto;
-  
-}
-
-.demo {
-  width:560px;
-  margin:0px auto;
+#container {
+  position: relative;
+/*  background-color: rgba(21, 64, 255, 0.6);*/
+  width: 350px;
+  height: 450px;
+  top: -2em; /* what the hell*/
 }
 
 #inside {
-  visibility: hidden;
+/*  visibility: hidden;*/
 }
 
 #wholething {
+  position: absolute;
   visibility: hidden;
+  width: 100%;
+  display: block;
+  bottom: 1em;
 }
 
 #mainSubhead {
+  position: relative;
   visibility: hidden;
 }
 
@@ -191,16 +241,6 @@ button#play {
 #blue {
   cursor: pointer;
 }
-
-#container {
-    position: relative;
-    width: 350px;
-    height: 350px;
-    margin: 0 auto;
-}
-
-
-
 
 /* ==========================================================================
    Helper classes
