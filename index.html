@@ -24,7 +24,7 @@
 
                <div class="centered">
                    <div id="container">
-                       <h2 id="mainSubhead">Pick a color</h2>
+                       <h2 id="mainSubhead">Pick a Color</h2>
                    
                        <svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
                          <g id="red">
@@ -51,7 +51,7 @@
                          </g>
                        </svg>
 
-                       <div class="containerNumbers">
+                       <div id="containerNumbers">
                            <div id="redNum">
                                <h3 class="top-left">1</h3>
                            </div>
@@ -121,10 +121,22 @@
                     return tl;
                 }
 
-                function addFirstIcons() {
-                    // var tl = new TimelineMax();
-                    return console.log("hello Test from github" + " " + color);
-                    // return tl;
+                function addNumbers() {
+                    $( '#red' ).off();
+                    $( '#blue' ).off();
+                    $( '#purple' ).off();
+                    $( '#green' ).off();
+                    var mainSubhead = $('#mainSubhead'),
+                        tl = new TimelineMax();
+
+                        
+                        tl.set(mainSubhead.text("Pick a Number"), {y: 1, autoAlpha: 0})
+                        tl.to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
+
+                        tl.to(containerNumbers, .5, {y: -1, delay: .5, autoAlpha: 1, ease:Power3.easeIn}, '-=1');
+                    return tl;
+                    // return console.log("hello Test from github" + " " + color);
+
                 }
                 
 
@@ -137,10 +149,11 @@
                     var redTl = new TimelineMax();
 
                     redTl
+                        .to(mainSubhead, .5, {y: -40, delay: .3, autoAlpha: 0, ease:Power3.easeIn}, '-=1.5')
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDownHalf() )
-                        .call( addFirstIcons );  // than remove all color event handlers so they dont interfere with icon event handlers
+                        .call( addNumbers );  // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
                 $('#purple').on('click', function() {
@@ -154,7 +167,8 @@
                         .add( sideways() )
                         .add( upDown() )
                         .add( sidewaysHalf() )
-                        .call( addFirstIcons );
+                        .to(mainSubhead, .4, {y: -40, autoAlpha: 0, ease:Power2.easeOut}, '-=0.5')
+                        .call( addNumbers );
                 });
 
                 $('#blue').on('click', function() {
@@ -166,7 +180,7 @@
                         .add( sideways() )
                         .add( upDown() )
                         .add( sidewaysHalf() )
-                        .call( addFirstIcons );
+                        .call( addNumbers );
                 });
 
                 $('#green').on('click', function() {
@@ -179,15 +193,15 @@
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDownHalf() )
-                        .call( addFirstIcons );
+                        .call( addNumbers );
                 });
 
                 masterTl
                     .set(wholeThing, {autoAlpha: 0})
                     .set(mainSubhead, {autoAlpha: 0})
-                    .to(h1, .3, {y: -8, delay: 2.5, autoAlpha: 0, ease:Power2.easeIn})
-                    .to(mainSubhead, .5, {y: 16, delay: .8, autoAlpha: 1, ease:Power2.easeOut})
-                    .to(wholeThing, .5, {y: 16, autoAlpha: 1, ease:Power2.easeOut}, '-=0.5');
+                    .to(h1, .4, {y: -40, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
+                    .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
+                    .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
 
                 
 
