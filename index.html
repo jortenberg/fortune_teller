@@ -53,16 +53,16 @@
 
                        <div id="containerNumbers">
                            <div id="redNum">
-                               <h3 class="top-left">1</h3>
+                               <h3 class="top-left">11</h3>
                            </div>
                            <div id="blueNum">
-                               <h3 class="top-right">10</h3>
+                               <h3 class="top-right">11</h3>
                            </div>
                            <div id="purpleNum">
                                <h3 class="bottom-left">11</h3>
                            </div>
                            <div id="greenNum">
-                               <h3 class="bottom-right">12</h3>
+                               <h3 class="bottom-right">11</h3>
                            </div>
                        </div>
                    </div>
@@ -92,7 +92,13 @@
                     inside = $("#inside"),
                     mainSubhead = $("#mainSubhead"),
                     masterTl = new TimelineMax(),
-                    color;
+                    color,
+                    num,
+                    numTopLeft = getRandomInt(1, 4),
+                    numTopRight = getRandomInt(5, 7),
+                    numBottomLeft = getRandomInt(8, 11),
+                    numBottomRight = getRandomInt(20, 25);
+                    // tlred = new TimelineMax({repeat: 3, onComplete: loadContent})
 
                 function sideways() {
                     var tl = new TimelineMax();
@@ -121,19 +127,39 @@
                     return tl;
                 }
 
+                // Returns a random integer between min (inclusive) and max (inclusive)
+
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
                 function addNumbers() {
                     $( '#red' ).off();
                     $( '#blue' ).off();
                     $( '#purple' ).off();
                     $( '#green' ).off();
+
                     var mainSubhead = $('#mainSubhead'),
+                        containerNumbers = $('#containerNumbers'),
+                        redNumster = $( ".top-left" ),
+                        blueNumster = $( ".top-right" ),
+                        purpleNumster = $( ".bottom-left" ),
+                        greenNumster = $( ".bottom-right" ),
+                        hello = "Pick a Number",
                         tl = new TimelineMax();
 
-                        
-                        tl.set(mainSubhead.text("Pick a Number"), {y: 1, autoAlpha: 0})
-                        tl.to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
 
-                        tl.to(containerNumbers, .5, {y: -1, delay: .5, autoAlpha: 1, ease:Power3.easeIn}, '-=1');
+
+                        tl
+                          .set(mainSubhead.text(hello), {y: 1, autoAlpha: 0})
+                          .to(mainSubhead, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn})
+
+                          .to(containerNumbers, .5, {y: -1, autoAlpha: 1, ease:Power3.easeIn})
+                          .set(redNumster.text(numTopLeft), {autoAlpha: 1})
+                          .set(blueNumster.text(numTopRight), {autoAlpha: 1})
+                          .set(purpleNumster.text(numBottomLeft), {autoAlpha: 1})
+                          .set(greenNumster.text(numBottomRight), {autoAlpha: 1});
+
                     return tl;
                     // return console.log("hello Test from github" + " " + color);
 
@@ -149,11 +175,12 @@
                     var redTl = new TimelineMax();
 
                     redTl
-                        .to(mainSubhead, .5, {y: -40, delay: .3, autoAlpha: 0, ease:Power3.easeIn}, '-=1.5')
+                        .to(mainSubhead, .5, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeIn}, "-=1.5")
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDownHalf() )
-                        .call( addNumbers );  // than remove all color event handlers so they dont interfere with icon event handlers
+                        .call( addNumbers );  
+                        // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
                 $('#purple').on('click', function() {
@@ -161,13 +188,13 @@
                     var purpleTl = new TimelineMax();
 
                     purpleTl
+                        .to(mainSubhead, .5, {y: -40, delay: .5, autoAlpha: 0, ease: Power3.easeIn}, "-=2")
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
                         .add( sidewaysHalf() )
-                        .to(mainSubhead, .4, {y: -40, autoAlpha: 0, ease:Power2.easeOut}, '-=0.5')
                         .call( addNumbers );
                 });
 
@@ -196,39 +223,37 @@
                         .call( addNumbers );
                 });
 
+                $('#redNum').on('click', function() {
+                    num = numTopLeft;
+                  // debugger;
+
+                    console.log(num);
+                });
+
+                $('#blueNum').on('click', function() {
+                    num = numTopRight;
+
+                    console.log(num);
+                });
+
+                $('#purpleNum').on('click', function() {
+                    num =  numBottomLeft;
+
+                    console.log(num);
+                });
+
+                $('#greenNum').on('click', function() {
+                    num = numBottomRight;
+
+                    console.log(num);
+                });
+
                 masterTl
                     .set(wholeThing, {autoAlpha: 0})
                     .set(mainSubhead, {autoAlpha: 0})
-                    .to(h1, .4, {y: -40, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
+                    .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
                     .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
                     .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
-
-                
-
-                // $('#btnPurple').on('click', function() {
-                //     var number = color.length / 2
-                //     tl.play();
-                //  });
-
-                // click on color
-                // function runs cycle the amount of letters in color
-                // ends in open state
-                // a 1st set of icons populate the inside
-                // click on icon
-                // function runs cycle the amount of letters in the icon
-                // ends in open state
-                // a 2nd set of icons populalates the inside
-                // click on icon
-                // function runs cycle the amount of letters in the icon
-                // ends in closed state
-                // twirls really fast
-                // fades to vanish
-                // pops or fades in "Color" + "icon1" + "icon2" =
-                // fortune pops or fades in "fortune"
-
-
-
-
 
             });
           

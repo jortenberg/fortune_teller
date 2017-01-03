@@ -234,7 +234,7 @@ a, a:hover, a:visited {
   visibility: hidden;
 }
 
-#red, #blue, #green, #purple {
+#red, #blue, #green, #purple, #redNum, #blueNum, #purpleNum, #greenNum {
   cursor: pointer;
 }
 
