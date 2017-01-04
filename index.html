@@ -178,9 +178,11 @@
 
                         tlease
                           .set(containerNumbers, {css: {display: "block"}})
-                          .to(mainSubhead.text(hello), .3, {y:0, autoAlpha:1, ease:Power2.easeInOut})
-                          .to(redNumster.text(numTopLeft), .5, {y:0, autoAlpha:1, ease:Power2.easeInOut});
-
+                          .fromTo(mainSubhead.text(hello), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut})
+                          .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3")
+                          .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3")
+                          .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3")
+                          .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3");
 
                     return tlease;
                     // return console.log("hello Test from github" + " " + color);
@@ -197,7 +199,7 @@
                     var redTl = new TimelineMax({onComplete: addNumbersEase});
 
                     redTl
-                        .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1.2")
+                        .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDownHalf() );  
