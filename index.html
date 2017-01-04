@@ -53,16 +53,16 @@
 
                        <div id="containerNumbers">
                            <div id="redNum">
-                               <h3 class="top-left">11</h3>
+                               <h3 class="top-left"></h3>
                            </div>
                            <div id="blueNum">
-                               <h3 class="top-right">11</h3>
+                               <h3 class="top-right"></h3>
                            </div>
                            <div id="purpleNum">
-                               <h3 class="bottom-left">11</h3>
+                               <h3 class="bottom-left"></h3>
                            </div>
                            <div id="greenNum">
-                               <h3 class="bottom-right">11</h3>
+                               <h3 class="bottom-right"></h3>
                            </div>
                        </div>
                    </div>
@@ -85,6 +85,8 @@
 
         <script>
 
+        // should I use a js linter? http://www.jslint.com/
+
             $(document).ready(function() {
                 var h1 = $("h1"),
                     wholeThing = $("#wholething"),
@@ -94,10 +96,10 @@
                     masterTl = new TimelineMax(),
                     color,
                     num,
-                    numTopLeft = getRandomInt(1, 4),
-                    numTopRight = getRandomInt(5, 7),
+                    numTopLeft = getRandomInt(5, 7),
+                    numTopRight = getRandomInt(1, 4),
                     numBottomLeft = getRandomInt(8, 11),
-                    numBottomRight = getRandomInt(20, 25);
+                    numBottomRight = getRandomInt(12, 15);
                     // tlred = new TimelineMax({repeat: 3, onComplete: loadContent})
 
                 function sideways() {
@@ -133,14 +135,14 @@
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
 
-                function addNumbers() {
-                    $( '#red' ).off();
-                    $( '#blue' ).off();
-                    $( '#purple' ).off();
-                    $( '#green' ).off();
+                // $( '#red' ).off();
+                // $( '#blue' ).off();
+                // $( '#purple' ).off();
+                // $( '#green' ).off();
 
-                    var mainSubhead = $('#mainSubhead'),
-                        containerNumbers = $('#containerNumbers'),
+                function addNumbers() {
+
+                    var containerNumbers = $('#containerNumbers'),
                         redNumster = $( ".top-left" ),
                         blueNumster = $( ".top-right" ),
                         purpleNumster = $( ".bottom-left" ),
@@ -148,13 +150,11 @@
                         hello = "Pick a Number",
                         tl = new TimelineMax();
 
-
+                        console.log("hello function");
 
                         tl
-                          .set(mainSubhead.text(hello), {y: 1, autoAlpha: 0})
-                          .to(mainSubhead, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn})
-
-                          .to(containerNumbers, .5, {y: -1, autoAlpha: 1, ease:Power3.easeIn})
+                          .set(containerNumbers, {css: {display: "block"}})
+                          .set(mainSubhead.text(hello), {y:0, autoAlpha: 1})
                           .set(redNumster.text(numTopLeft), {autoAlpha: 1})
                           .set(blueNumster.text(numTopRight), {autoAlpha: 1})
                           .set(purpleNumster.text(numBottomLeft), {autoAlpha: 1})
@@ -162,24 +162,45 @@
 
                     return tl;
                     // return console.log("hello Test from github" + " " + color);
+                }
 
+                function addNumbersEase() {
+
+                    var containerNumbers = $('#containerNumbers'),
+                        redNumster = $( ".top-left" ),
+                        blueNumster = $( ".top-right" ),
+                        purpleNumster = $( ".bottom-left" ),
+                        greenNumster = $( ".bottom-right" ),
+                        hello = "Pick a Number",
+                        tlease = new TimelineMax();
+
+                        console.log("hello function with ease");
+
+                        tlease
+                          .set(containerNumbers, {css: {display: "block"}})
+                          .to(mainSubhead.text(hello), .3, {y:0, autoAlpha:1, ease:Power2.easeInOut})
+                          .to(redNumster.text(numTopLeft), .5, {y:0, autoAlpha:1, ease:Power2.easeInOut});
+
+
+                    return tlease;
+                    // return console.log("hello Test from github" + " " + color);
                 }
                 
+                // .fromTo(inside, 1, {css: {left: "100px", top: "100px"}}, {css:{left:"130px", top: "130px"}} )
 
                 CSSPlugin.defaultSmoothOrigin = true;
 
 
                 $('#red').on('click', function() {
                     // debugger;
-                    color = 'red';//$(this).attr('id');
-                    var redTl = new TimelineMax();
+                    color = 'red';
+                    var redTl = new TimelineMax({onComplete: addNumbersEase});
 
                     redTl
-                        .to(mainSubhead, .5, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeIn}, "-=1.5")
+                        .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1.2")
                         .add( upDown() )
                         .add( sideways() )
-                        .add( upDownHalf() )
-                        .call( addNumbers );  
+                        .add( upDownHalf() );  
                         // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
