@@ -178,11 +178,11 @@
 
                         tlease
                           .set(containerNumbers, {css: {display: "block"}})
-                          .fromTo(mainSubhead.text(hello), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut})
-                          .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3")
-                          .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3")
-                          .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3")
-                          .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "-=.3");
+                          .fromTo(mainSubhead.text(hello), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                          .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                          .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                          .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                          .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together");
 
                     return tlease;
                     // return console.log("hello Test from github" + " " + color);
@@ -203,6 +203,8 @@
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDownHalf() );  
+
+                    redTl.timeScale(1.5);
                         // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
