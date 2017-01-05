@@ -1,0 +1,24 @@
+<svg id="wholething" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.574 305.479">
+  <g id="red">
+   <path fill="#D41F30" d="M152.787 152.74H15L0 0"/>
+   <path fill="#EC2127" d="M0 0l152.787 15v137.74"/>
+  </g>
+  <g id="purple" data-letters="6">
+   <path fill="#8F64AA" d="M152.787 152.74H15.084l-15 152.74"/>
+   <path fill="#A771B0" d="M.084 305.48l152.703-15V152.74"/>
+  </g>
+  <g id="blue">
+   <path fill="#0195CC" d="M152.787 152.74h137.787l15-152.74"/>
+   <path fill="#15A3DD" d="M305.574 0L152.787 15v137.74"/>
+  </g>
+  <g id="green">
+   <path fill="#00AE4C" d="M152.787 152.74H290.49l15 152.74"/>
+   <path fill="#42B760" d="M305.49 305.48l-152.703-15V152.74"/>
+  </g>
+  <g id="inside">
+   <path id="redshadow" fill="#bc1127" d="M153.357 14.666v137.74H15.54"/>
+   <path id="purpleshadow" fill="#715391" d="M153.357 290.145V152.407H15.625"/>
+   <path id="blueshadow" fill="#0080b3" d="M153.357 14.666v137.74h137.457"/>
+   <path id="greenshadow" fill="#009542" d="M153.357 290.145V152.407H290.73"/>
+  </g>
+</svg>

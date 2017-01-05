@@ -109,9 +109,17 @@
                     return tl;
                 }
 
-                function sidewaysHalf() {
+                function sidewaysHalfOpen() {
                     var tl = new TimelineMax();
                         tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+                    return tl;
+                }
+
+                function sidewaysHalfClose() {
+                    var tl = new TimelineMax();
+                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+
+                        tl.reverse();
                     return tl;
                 }
 
@@ -123,14 +131,22 @@
                     return tl;
                 }
 
-                function upDownHalf() {
+                function upDownHalfOpen() {
                     var tl = new TimelineMax();
                         tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
-                // Returns a random integer between min (inclusive) and max (inclusive)
+                function upDownHalfClose() {
+                    var tl = new TimelineMax();
+                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
 
+                        tl.reverse();
+                    return tl;
+                }
+
+
+                // Returns a random integer between min (inclusive) and max (inclusive)
                 function getRandomInt(min, max) {
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
@@ -165,27 +181,30 @@
                 }
 
                 function addNumbersEase() {
+                  var containerNumbers = $('#containerNumbers'),
+                      redNumster = $( ".top-left" ),
+                      blueNumster = $( ".top-right" ),
+                      purpleNumster = $( ".bottom-left" ),
+                      greenNumster = $( ".bottom-right" ),
+                      hello = "Pick a Number",
+                      tlease = new TimelineMax();
 
-                    var containerNumbers = $('#containerNumbers'),
-                        redNumster = $( ".top-left" ),
-                        blueNumster = $( ".top-right" ),
-                        purpleNumster = $( ".bottom-left" ),
-                        greenNumster = $( ".bottom-right" ),
-                        hello = "Pick a Number",
-                        tlease = new TimelineMax();
+                      console.log("hello numbers function with ease");
 
-                        console.log("hello function with ease");
+                      tlease
+                        .set(containerNumbers, {css: {display: "block"}})
+                        .fromTo(mainSubhead.text(hello), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                        .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                        .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                        .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+                        .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together");
 
-                        tlease
-                          .set(containerNumbers, {css: {display: "block"}})
-                          .fromTo(mainSubhead.text(hello), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
-                          .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
-                          .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
-                          .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
-                          .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together");
+                  return tlease;
+                  // return console.log("hello Test from github" + " " + color);
+                }
 
-                    return tlease;
-                    // return console.log("hello Test from github" + " " + color);
+                function addIcons() {
+                  console.log("hello add icons function");
                 }
                 
                 // .fromTo(inside, 1, {css: {left: "100px", top: "100px"}}, {css:{left:"130px", top: "130px"}} )
@@ -202,7 +221,7 @@
                         .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
                         .add( upDown() )
                         .add( sideways() )
-                        .add( upDownHalf() );  
+                        .add( upDownHalfOpen() );  
 
                     redTl.timeScale(1.3);
 
@@ -220,9 +239,9 @@
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
-                        .add( sidewaysHalf() );
+                        .add( sidewaysHalfOpen() );
 
-                    purpleTl.timeScale(1.3);
+                    purpleTl.timeScale(0.5);
                 });
 
                 $('#blue').on('click', function() {
@@ -234,7 +253,7 @@
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
-                        .add( sidewaysHalf() );
+                        .add( sidewaysHalfOpen() );
 
                     blueTl.timeScale(1.3);
                 });
@@ -249,16 +268,28 @@
                         .add( sideways() )
                         .add( upDown() )
                         .add( sideways() )
-                        .add( upDownHalf() );
+                        .add( upDownHalfOpen() );
 
                     greenTl.timeScale(1.3);
                 });
+
+                // 88888888888888888888888888888
 
                 $('#redNum').on('click', function() {
                     num = numTopLeft;
                   // debugger;
 
                     console.log(num);
+
+                    var redNumTl = new TimelineMax({onComplete: addIcons});
+
+                    redNumTl
+                        .add( sidewaysHalfClose() )
+                        .add( upDown() )
+                        .add( sideways() )
+                        .add( upDownHalfOpen() );
+
+                    redNumTl.timeScale(1.3);
                 });
 
                 $('#blueNum').on('click', function() {
