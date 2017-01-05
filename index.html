@@ -104,28 +104,28 @@
 
                 function sideways() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
-                        tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
+                        tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function sidewaysHalf() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function upDown() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, 
-                            {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut})
-                        tl.to(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, 
+                            {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
+                        tl.to(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
                     return tl;
                 }
 
                 function upDownHalf() {
                     var tl = new TimelineMax();
-                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: '50% 50%', autoAlpha: 1, ease:Power2.easeInOut});
+                        tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
@@ -204,48 +204,54 @@
                         .add( sideways() )
                         .add( upDownHalf() );  
 
-                    redTl.timeScale(1.5);
+                    redTl.timeScale(1.3);
+
                         // than remove all color event handlers so they dont interfere with icon event handlers
                 });
 
                 $('#purple').on('click', function() {
                     color = 'purple';
-                    var purpleTl = new TimelineMax();
+                    var purpleTl = new TimelineMax({onComplete: addNumbersEase});
 
                     purpleTl
-                        .to(mainSubhead, .5, {y: -40, delay: .5, autoAlpha: 0, ease: Power3.easeIn}, "-=2")
+                        .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
-                        .add( sidewaysHalf() )
-                        .call( addNumbers );
+                        .add( sidewaysHalf() );
+
+                    purpleTl.timeScale(1.3);
                 });
 
                 $('#blue').on('click', function() {
                     color = 'blue';
-                    var blueTl = new TimelineMax();
+                    var blueTl = new TimelineMax({onComplete: addNumbersEase});
 
                     blueTl
+                        .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
-                        .add( sidewaysHalf() )
-                        .call( addNumbers );
+                        .add( sidewaysHalf() );
+
+                    blueTl.timeScale(1.3);
                 });
 
                 $('#green').on('click', function() {
                     color = 'green';
-                    var greenTl = new TimelineMax();
+                    var greenTl = new TimelineMax({onComplete: addNumbersEase});
 
                     greenTl
+                        .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
                         .add( upDown() )
                         .add( sideways() )
                         .add( upDown() )
                         .add( sideways() )
-                        .add( upDownHalf() )
-                        .call( addNumbers );
+                        .add( upDownHalf() );
+
+                    greenTl.timeScale(1.3);
                 });
 
                 $('#redNum').on('click', function() {
@@ -279,6 +285,8 @@
                     .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
                     .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
                     .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
+
+                masterTl.timeScale(1.4);
 
             });
           
