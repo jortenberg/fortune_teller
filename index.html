@@ -281,33 +281,38 @@
                     num = numTopLeft;
                     console.log(num);
 
+                    var tl= new TimelineMax({onComplete: addIcons}); 
+
+                    // tl.to(mainSubhead, .4, {autoAlpha: 0, ease: Power2.easeInOut})
+                    // tl.to(containerNumbers, .4, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.4")
+                  
+
                     if (num%2 == 0) {
                       console.log("this is the even scenario");
 
-                      var tleven= new TimelineMax({onComplete: addIcons}); 
-                      tleven.add( sidewaysHalfClose() )
+                      
+                      tl.add( sidewaysHalfClose() )
                         for (var i = 0; i < (num-2)/2; i++) {
-                            tleven.add( upDown() )
-                            tleven.add( sideways() );
+                            tl.add( upDown() )
+                            tl.add( sideways() );
                         }
-                      tleven.add( upDown() )
-                      tleven.add( sidewaysHalfOpen() );
-                      tleven.timeScale(.5);
-                      return tleven;
+                      tl.add( upDown() )
+                      tl.add( sidewaysHalfOpen() );
                     }
                     else {
                       console.log("this is the odd scenario");
 
-                      var tlodd= new TimelineMax({onComplete: addIcons}); 
-                      tlodd.add( sidewaysHalfClose() )
+                      var tl= new TimelineMax({onComplete: addIcons}); 
+                      tl.add( sidewaysHalfClose() )
                         for (var i = 0; i < (num-1)/2; i++) {
-                            tlodd.add( upDown() )
-                            tlodd.add( sideways() );
+                            tl.add( upDown() )
+                            tl.add( sideways() );
                         }
-                      tlodd.add( upDownHalfOpen() );
-                      tlodd.timeScale(.5);
-                      return tlodd;
+                      tl.add( upDownHalfOpen() );
                     }
+
+                    tl.timeScale(.3);
+                    return tl;
                 });
 
                 // if (value%2 == 0) {
