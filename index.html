@@ -279,17 +279,24 @@
 
                 $('#redNum').on('click', function() {
                     num = numTopLeft;
-                    console.log(num);
 
-                    var tl= new TimelineMax({onComplete: addIcons}); 
+                    var tl= new TimelineMax({onComplete: part2}); 
 
-                    // tl.to(mainSubhead, .4, {autoAlpha: 0, ease: Power2.easeInOut})
-                    // tl.to(containerNumbers, .4, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.4")
-                  
+                      tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+                      tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5");
+
+                    return tl;
+                });
+
+
+                function part2() {
+                  // num = numTopLeft;
+                  console.log(num);
+
+                  var tl= new TimelineMax({onComplete: addIcons}); 
 
                     if (num%2 == 0) {
                       console.log("this is the even scenario");
-
                       
                       tl.add( sidewaysHalfClose() )
                         for (var i = 0; i < (num-2)/2; i++) {
@@ -302,7 +309,6 @@
                     else {
                       console.log("this is the odd scenario");
 
-                      var tl= new TimelineMax({onComplete: addIcons}); 
                       tl.add( sidewaysHalfClose() )
                         for (var i = 0; i < (num-1)/2; i++) {
                             tl.add( upDown() )
@@ -310,17 +316,8 @@
                         }
                       tl.add( upDownHalfOpen() );
                     }
-
-                    tl.timeScale(.3);
                     return tl;
-                });
-
-                // if (value%2 == 0) {
-                //   evenFunction(num);
-                // }  
-                // else {
-                //   oddFunction(num);
-                // }
+                }
 
                 // 88888888888888888888888888888
 
