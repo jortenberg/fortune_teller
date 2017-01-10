@@ -96,7 +96,7 @@
                     masterTl = new TimelineMax(),
                     color,
                     num,
-                    numTopLeft = getRandomInt(1, 7),
+                    numTopLeft = getRandomInt(4, 7),
                     numTopRight = getRandomInt(1, 3),
                     numBottomLeft = getRandomInt(8, 11),
                     numBottomRight = getRandomInt(12, 15);
@@ -117,8 +117,14 @@
 
                 function sidewaysHalfClose() {
                     var tl = new TimelineMax();
-                        tl.set(inside, {scaleX: 1, scaleY: 1, autoAlpha: 1})
+                        // tl.set(inside, {scaleX: 1, scaleY: 1, autoAlpha: 1})
                         tl.fromTo(inside, .3, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1}, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+                    return tl;
+                }
+
+                function sidewaysHalfClose2() {
+                    var tl = new TimelineMax();
+                        tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
                     return tl;
                 }
 
@@ -150,11 +156,6 @@
                     return Math.floor(Math.random() * (max - min + 1)) + min;
                 }
 
-                // $( '#red' ).off();
-                // $( '#blue' ).off();
-                // $( '#purple' ).off();
-                // $( '#green' ).off();
-
                 function addNumbers() {
 
                     var containerNumbers = $('#containerNumbers'),
@@ -164,6 +165,11 @@
                         greenNumster = $( ".bottom-right" ),
                         hello = "Pick a Number",
                         tl = new TimelineMax();
+
+                        $( "#red" ).off();
+                        $( "#blue" ).off();
+                        $( "#purple" ).off();
+                        $( "#green" ).off();
 
                         console.log("hello function");
 
@@ -180,7 +186,7 @@
                 }
 
                 function addNumbersEase() {
-                  var containerNumbers = $('#containerNumbers'),
+                  var containerNumbers = $("#containerNumbers"),
                       redNumster = $( ".top-left" ),
                       blueNumster = $( ".top-right" ),
                       purpleNumster = $( ".bottom-left" ),
@@ -222,10 +228,20 @@
                         .add( sideways() )
                         .add( upDownHalfOpen() );  
 
-                    redTl.timeScale(1.2);
                     return redTl;
 
                         // than remove all color event handlers so they dont interfere with icon event handlers
+                });
+
+                $('#red2').on('click', function() {
+                    color = 'red';
+                    num = color.length;
+
+                    var redTl= new TimelineMax({onComplete: part2}); 
+
+                      redTl.to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1");
+                      
+                    return redTl;
                 });
 
                 $('#purple').on('click', function() {
@@ -241,7 +257,6 @@
                         .add( upDown() )
                         .add( sidewaysHalfOpen() );
 
-                    purpleTl.timeScale(1.2);
                     return purpleTl;
                 });
 
@@ -256,7 +271,8 @@
                         .add( upDown() )
                         .add( sidewaysHalfOpen() );
 
-                    blueTl.timeScale(1.2);
+                    return blueTl;
+
                 });
 
                 $('#green').on('click', function() {
@@ -271,7 +287,8 @@
                         .add( sideways() )
                         .add( upDownHalfOpen() );
 
-                    greenTl.timeScale(1.2);
+                    return greenTl;
+
                 });
 
                 // 88888888888888888888888888888
@@ -284,11 +301,47 @@
                     var tl= new TimelineMax({onComplete: part2}); 
 
                       tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-                      tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5");
+                      tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+                      tl.add( sidewaysHalfClose() );
                       
                     return tl;
                 });
 
+                $('#blueNum').on('click', function() {
+                    num = numTopRight;
+
+                    var tl= new TimelineMax({onComplete: part2}); 
+
+                      tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+                      tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+                      tl.add( sidewaysHalfClose() );
+                      
+                    return tl;
+                });
+
+                $('#purpleNum').on('click', function() {
+                    num = numBottomLeft;
+
+                    var tl= new TimelineMax({onComplete: part2}); 
+
+                      tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+                      tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+                      tl.add( sidewaysHalfClose() );
+                      
+                    return tl;
+                });
+
+                $('#greenNum').on('click', function() {
+                    num = numBottomRight;
+
+                    var tl= new TimelineMax({onComplete: part2}); 
+
+                      tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+                      tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+                      tl.add( sidewaysHalfClose() );
+                      
+                    return tl;
+                });
 
                 function part2() {
                   // num = numTopLeft;
@@ -299,26 +352,24 @@
                     if (num%2 == 0) {
                       console.log("this is the even scenario");
 
-                      // I think if num is 4 this does not work
-                      
-                      tl.add( sidewaysHalfClose() )
-                        for (var i = 0; i < (num-2)/2; i++) {
-                            tl.add( upDown() )
-                            tl.add( sideways() );
-                        }
+                      for (var i = 0; i < (num-2)/2; i++) {
+                          tl.add( upDown() )
+                          tl.add( sideways() );
+                      }
                       tl.add( upDown() )
                       tl.add( sidewaysHalfOpen() );
                     }
                     else {
                       console.log("this is the odd scenario");
 
-                      tl.add( sidewaysHalfClose() )
-                        for (var i = 0; i < (num-1)/2; i++) {
-                            tl.add( upDown() )
-                            tl.add( sideways() );
-                        }
+                      for (var i = 0; i < (num-1)/2; i++) {
+                          tl.add( upDown() )
+                          tl.add( sideways() );
+                      }
                       tl.add( upDownHalfOpen() );
                     }
+
+                    tl.timeScale(1.0);
                     return tl;
                 }
 
@@ -348,6 +399,8 @@
                     .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
                     .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
                     .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
+
+                // masterTl.timeScale(0.3);
 
             });
           
