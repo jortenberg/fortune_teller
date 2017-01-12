@@ -221,6 +221,10 @@ a, a:hover, a:visited {
   visibility: hidden;
 }
 
+#icons1 {
+  visibility: hidden;
+}
+
 #wholething {
   position: absolute;
   visibility: hidden;
