@@ -165,9 +165,6 @@ a, a:hover, a:visited {
 /*  visibility: hidden;*/
 }
 
-.containerSVG {
-
-}
 
 #redNum {
   width: 50%;
@@ -221,7 +218,7 @@ a, a:hover, a:visited {
   visibility: hidden;
 }
 
-#icons1 {
+#icons1, #icons2 {
   visibility: hidden;
 }
 
@@ -236,6 +233,12 @@ a, a:hover, a:visited {
 #mainSubhead {
   position: relative;
   visibility: hidden;
+}
+
+.redIcon, .blueIcon, .purpleIcon, .greenIcon {
+  padding: 50px;
+  cursor: pointer;
+  display: block;
 }
 
 #red, #blue, #green, #purple, #redNum, #blueNum, #purpleNum, #greenNum {
