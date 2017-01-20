@@ -1,0 +1,305 @@
+$(document).ready(function() {
+    var h1 = $("h1"),
+        wholeThing = $("#wholething"),
+        red = $("#red"),
+        inside = $("#inside"),
+        mainSubhead = $("#mainSubhead"),
+        masterTl = new TimelineMax(),
+        color,
+        num,
+        iconly,
+        numTopLeft = getRandomInt(4, 7),
+        numTopRight = getRandomInt(1, 3),
+        numBottomLeft = getRandomInt(8, 11),
+        numBottomRight = getRandomInt(12, 15);
+
+
+    function sideways() {
+        var tl = new TimelineMax();
+            tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
+            tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
+        return tl;
+    }
+
+    function sidewaysHalfOpen() {
+        var tl = new TimelineMax();
+            tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+        return tl;
+    }
+
+    function sidewaysHalfClose() {
+        var tl = new TimelineMax();
+            // tl.set(inside, {scaleX: 1, scaleY: 1, autoAlpha: 1})
+            tl.fromTo(inside, .3, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1}, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+        return tl;
+    }
+
+    function sidewaysHalfClose2() {
+        var tl = new TimelineMax();
+            tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+        return tl;
+    }
+
+    function upDown() {
+        var tl = new TimelineMax();
+            tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, 
+                {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
+            tl.to(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
+        return tl;
+    }
+
+    function upDownHalfOpen() {
+        var tl = new TimelineMax();
+            tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+        return tl;
+    }
+
+
+    function upDownHalfClose() {
+        var tl = new TimelineMax();
+            tl.set(inside, {scaleX: 1, scaleY: 1, autoAlpha: 1})
+            tl.fromTo(inside, .3, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1}, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+        return tl;
+    }
+
+
+    // Returns a random integer between min (inclusive) and max (inclusive)
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function addNumbers() {
+      var containerNumbers = $("#containerNumbers"),
+          redNumster = $( ".top-left" ),
+          blueNumster = $( ".top-right" ),
+          purpleNumster = $( ".bottom-left" ),
+          greenNumster = $( ".bottom-right" ),
+          tl = new TimelineMax();
+
+          console.log("hello numbers function with ease");
+
+          $( "#red" ).off();
+          $( "#blue" ).off();
+          $( "#purple" ).off();
+          $( "#green" ).off();
+          $( "#red" ).css( "cursor", "auto" );
+          $( "#blue" ).css( "cursor", "auto" );
+          $( "#purple" ).css( "cursor", "auto" );
+          $( "#green" ).css( "cursor", "auto" );
+
+
+          tl
+            .set(containerNumbers, {css: {display: "block"}})
+            .fromTo(mainSubhead.text("Pick a Number"), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together");
+
+      return tl;
+    }
+
+    function addIcons() {
+
+      var icons = $("#icons" + getRandomInt(1, 4)),
+          tl = new TimelineMax();
+
+          console.log("hello add icons function");
+          console.log(icons);
+          
+          // debugger;
+
+        tl
+          .fromTo(mainSubhead.text("Pick a Thing"), .3, {autoAlpha:0}, {autoAlpha: 1, ease:Power2.easeInOut})
+          .to(icons, 0.5, {autoAlpha: 1, ease: Power2.easeInOut});
+
+      return tl;
+    }
+    
+
+    CSSPlugin.defaultSmoothOrigin = true;
+
+    $(".greenIcon").on("click", function() {
+        // debugger;
+        iconly = (this).id;
+
+        
+        var iconlyNum = iconly.length,
+            tl = new TimelineMax();
+
+            console.log(iconly);
+            console.log(iconlyNum);
+
+        tl
+            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDownHalfOpen() );  
+
+        return tl;
+    });
+
+
+    $('#red').on('click', function() {
+        // debugger;
+        color = 'red';
+        var redTl = new TimelineMax({onComplete: addNumbers});
+
+        redTl
+            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDownHalfOpen() );  
+
+        return redTl;
+    });
+
+    $('#purple').on('click', function() {
+        color = 'purple';
+        var purpleTl = new TimelineMax({onComplete: addNumbers});
+
+        purpleTl
+            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDown() )
+            .add( sidewaysHalfOpen() );
+
+        return purpleTl;
+    });
+
+    $('#blue').on('click', function() {
+        color = 'blue';
+        var blueTl = new TimelineMax({onComplete: addNumbers});
+
+        blueTl
+            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDown() )
+            .add( sidewaysHalfOpen() );
+
+        return blueTl;
+
+    });
+
+    $('#green').on('click', function() {
+        color = 'green';
+        var greenTl = new TimelineMax({onComplete: addNumbers});
+
+        greenTl
+            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDown() )
+            .add( sideways() )
+            .add( upDownHalfOpen() );
+
+        return greenTl;
+
+    });
+
+    // 88888888888888888888888888888
+
+    // tlred = new TimelineMax({repeat: 3, onComplete: loadContent})
+
+    $('#redNum').on('click', function() {
+        num = numTopLeft;
+
+        var tl= new TimelineMax({onComplete: part2}); 
+
+          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.add( sidewaysHalfClose(), "+=0.5");
+          
+        return tl;
+    });
+
+    $('#blueNum').on('click', function() {
+        num = numTopRight;
+
+        var tl= new TimelineMax({onComplete: part2}); 
+
+          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.add( sidewaysHalfClose(), "+=0.5");
+          
+        return tl;
+    });
+
+    $('#purpleNum').on('click', function() {
+        num = numBottomLeft;
+
+        var tl= new TimelineMax({onComplete: part2}); 
+
+          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.add( sidewaysHalfClose(), "+=0.5");
+          
+        return tl;
+    });
+
+    $('#greenNum').on('click', function() {
+        num = numBottomRight;
+
+        var tl= new TimelineMax({onComplete: part2}); 
+
+          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.add( sidewaysHalfClose(), "+=0.5");
+          
+        return tl;
+    });
+
+
+    $('#redIcons').on('click', function() {
+      console.log("hello world");
+    });
+
+
+    function part2() {
+      // num = numTopLeft;
+      console.log(num);
+
+      var tl= new TimelineMax({onComplete: addIcons}); 
+
+        if (num%2 == 0) {
+          console.log("this is the even scenario");
+
+          for (var i = 0; i < (num-2)/2; i++) {
+              tl.add( upDown() )
+              tl.add( sideways() );
+          }
+          tl.add( upDown() )
+          tl.add( sidewaysHalfOpen() );
+        }
+        else {
+          console.log("this is the odd scenario");
+
+          for (var i = 0; i < (num-1)/2; i++) {
+              tl.add( upDown() )
+              tl.add( sideways() );
+          }
+          tl.add( upDownHalfOpen() );
+        }
+
+        tl.timeScale(1.0);
+        return tl;
+    }
+
+    // 88888888888888888888888888888
+
+    masterTl
+        .set("#icons1", {autoAlpha: 0})
+        .set("#icons2", {autoAlpha: 0})
+        .set(wholeThing, {autoAlpha: 0})
+        .set(mainSubhead, {autoAlpha: 0})
+        .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
+        .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
+        .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
+
+    // masterTl.timeScale(0.3);
+
+});
