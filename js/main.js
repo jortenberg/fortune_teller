@@ -73,6 +73,7 @@ $(document).ready(function() {
             .add( sideways() )
             .add( upDownHalfOpen() );  
 
+        redTl.timeScale(1.3);
         return redTl;
     });
 
@@ -159,10 +160,10 @@ $(document).ready(function() {
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
-          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.5");
-          
+          tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.add( sidewaysHalfClose(), "-=0.5");
+
         return tl;
     });
 
@@ -228,7 +229,7 @@ $(document).ready(function() {
         tl.add( upDownHalfOpen() );
       }
 
-      tl.timeScale(1.0);
+      tl.timeScale(1.3);
       return tl;
     }
 
@@ -241,8 +242,8 @@ $(document).ready(function() {
       
       // debugger;
       tl
-        .fromTo(mainSubhead.text("Pick a Thing"), .3, {autoAlpha:0}, {autoAlpha: 1, ease:Power2.easeInOut})
-        .to(icons, 0.5, {autoAlpha: 1, ease: Power2.easeInOut});
+        .fromTo(mainSubhead.text("Pick a Thing"), 0.5, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut})
+        .fromTo(icons, 0.5, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease: Power2.easeInOut}, "-=0.5");
 
       return tl;
     }
@@ -257,9 +258,9 @@ $(document).ready(function() {
         console.log(iconly);
 
         tl
-          .to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          .to(icons, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          .add( sidewaysHalfClose(), "+=0.5");
+          .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          .to(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          .add( sidewaysHalfClose(), "-=0.5");
 
         // var iconStuff = [tl, iconly] ask tess
         return tl;
@@ -276,7 +277,7 @@ $(document).ready(function() {
         tl
           .to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
           .to(icons, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          .add( sidewaysHalfClose(), "+=0.5");
+          .add( sidewaysHalfClose(), "-=0.5");
 
         return tl;
     });
@@ -341,12 +342,19 @@ $(document).ready(function() {
         tl.add( upDownHalfOpen() );
       }
 
-      tl.timeScale(1.0);
+      tl.timeScale(1.3);
       return tl;
     }
 
     function theChoices() {
       console.log("almost the finalie")
+      var tl = new TimelineMax();
+
+      tl
+        // .to(wholeThing, .4, {y: -80, autoAlpha: 0, ease:Power2.easeInOut});
+        // .to(wholeThing, .5, {scale: 0.5, y: -80, autoAlpha: .5, ease:Power2.easeInOut});
+        .to(wholeThing, .5, {scale: 0.3, top: "5%", rotation: 180, ease:Power2.easeInOut})
+        .to(inside, .5, {autoAlpha: 0, ease:Power2.easeInOut}, "-=0.5");
     }
 
     // 88888888888888888888888888888
@@ -360,7 +368,7 @@ $(document).ready(function() {
       .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
       .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
 
-    // masterTl.timeScale(0.3);
+    // masterTl.timeScale(0.5);
 
 });
 
