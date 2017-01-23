@@ -159,6 +159,34 @@ $(document).ready(function() {
       return tl;
     }
 
+    function addNumbersOther() {
+      var containerNumbers = $("#containerNumbers"),
+          redNumster = $( ".top-left" ).text(numTopLeft),
+          blueNumster = $( ".top-right" ).text(numTopRight),
+          purpleNumster = $( ".bottom-left" ).text(numBottomLeft),
+          greenNumster = $( ".bottom-right" ).text(numBottomRight),
+          tl = new TimelineMax();
+
+          console.log("hello numbers function with ease baby baby");
+
+          $( "#red" ).off();
+          $( "#blue" ).off();
+          $( "#purple" ).off();
+          $( "#green" ).off();
+          $( "#red" ).css( "cursor", "auto" );
+          $( "#blue" ).css( "cursor", "auto" );
+          $( "#purple" ).css( "cursor", "auto" );
+          $( "#green" ).css( "cursor", "auto" );
+
+          tl
+            .set(containerNumbers, {css: {display: "block", visibility: "hidden"}})
+            .fromTo(containerNumbers, 0.5, {scale: 0.2, autoAlpha:0}, {scale: 1.0, transformOrigin: "50% 50%", autoAlpha: 1, ease: Power2.easeInOut})
+            .fromTo(mainSubhead.text("Pick a Number"), .5, {scale: 0.2, autoAlpha:0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5");
+
+      tl.timeScale(1.0);
+      return tl;
+    }
+
     $('#redNum').on('click', function() {
         num = numTopLeft;
 
@@ -166,7 +194,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "-=0.5");
+          tl.add( sidewaysHalfClose(), "-=0.2");
 
         return tl;
     });
@@ -178,7 +206,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.5");
+          tl.add( sidewaysHalfClose(), "+=0.2");
           
         return tl;
     });
@@ -190,7 +218,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.5");
+          tl.add( sidewaysHalfClose(), "+=0.2");
           
         return tl;
     });
@@ -202,7 +230,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.5");
+          tl.add( sidewaysHalfClose(), "+=0.2");
           
         return tl;
     });
@@ -351,21 +379,26 @@ $(document).ready(function() {
     }
 
     function theChoices() {
-      console.log("almost the finalie")
+      console.log(color);
+      console.log(num);
+      console.log(iconly);
+      $("#deterColor").text(color);
+      $("#deterNum").text(num);
+      $("#deterIcon").text(iconly);
+
+
       var tl = new TimelineMax();
 
       tl
         // .to(wholeThing, .4, {y: -80, autoAlpha: 0, ease:Power2.easeInOut});
         // .to(wholeThing, .5, {scale: 0.5, y: -80, autoAlpha: .5, ease:Power2.easeInOut});
-        .to(wholeThing, .5, {scale: 0.3, top: "5%", rotation: 180, ease:Power2.easeInOut})
+        .to(wholeThing, .5, {scale: 0.2, y: -290, rotation: 180, ease:Power2.easeInOut})
         .to(inside, .5, {autoAlpha: 0, ease:Power2.easeInOut}, "-=0.5");
     }
 
     // 88888888888888888888888888888
 
     masterTl
-      .set("#icons1", {autoAlpha: 0})
-      .set("#icons2", {autoAlpha: 0})
       .set(wholeThing, {autoAlpha: 0})
       .set(mainSubhead, {autoAlpha: 0})
       .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
