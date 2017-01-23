@@ -62,13 +62,13 @@ $(document).ready(function() {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    $('#red').on('click', function() {
+    $("#red").on('click', function() {
         // debugger;
         color = 'red';
         var redTl = new TimelineMax({onComplete: addNumbers});
 
         redTl
-            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
             .add( upDown() )
             .add( sideways() )
             .add( upDownHalfOpen() );  
@@ -82,7 +82,7 @@ $(document).ready(function() {
         var purpleTl = new TimelineMax({onComplete: addNumbers});
 
         purpleTl
-            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
             .add( upDown() )
             .add( sideways() )
             .add( upDown() )
@@ -98,7 +98,7 @@ $(document).ready(function() {
         var blueTl = new TimelineMax({onComplete: addNumbers});
 
         blueTl
-            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
             .add( upDown() )
             .add( sideways() )
             .add( upDown() )
@@ -112,7 +112,7 @@ $(document).ready(function() {
         var greenTl = new TimelineMax({onComplete: addNumbers});
 
         greenTl
-            .to(mainSubhead, .3, {y: -80, delay: .5, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+            .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
             .add( upDown() )
             .add( sideways() )
             .add( upDown() )
@@ -146,12 +146,13 @@ $(document).ready(function() {
 
           tl
             .set(containerNumbers, {css: {display: "block"}})
-            .fromTo(mainSubhead.text("Pick a Number"), .3, {y:0, autoAlpha:0}, {y:0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(redNumster.text(numTopLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(blueNumster.text(numTopRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(purpleNumster.text(numBottomLeft), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(greenNumster.text(numBottomRight), .3, {autoAlpha: 0}, {autoAlpha: 1, ease:Power2.easeInOut}, "together");
+            .fromTo(mainSubhead.text("Pick a Number"), .3, {scale: 0.2, autoAlpha:0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(redNumster.text(numTopLeft), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(blueNumster.text(numTopRight), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(purpleNumster.text(numBottomLeft), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
+            .fromTo(greenNumster.text(numBottomRight), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together");
 
+      tl.timeScale(.3);
       return tl;
     }
 
@@ -172,8 +173,8 @@ $(document).ready(function() {
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
-          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
           tl.add( sidewaysHalfClose(), "+=0.5");
           
         return tl;
@@ -184,8 +185,8 @@ $(document).ready(function() {
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
-          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
           tl.add( sidewaysHalfClose(), "+=0.5");
           
         return tl;
@@ -196,8 +197,8 @@ $(document).ready(function() {
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
-          tl.to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          tl.to(containerNumbers, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
           tl.add( sidewaysHalfClose(), "+=0.5");
           
         return tl;
@@ -275,8 +276,8 @@ $(document).ready(function() {
         console.log(iconly);
 
         tl
-          .to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          .to(icons, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          .to(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
           .add( sidewaysHalfClose(), "-=0.5");
 
         return tl;
@@ -291,9 +292,9 @@ $(document).ready(function() {
         console.log(iconly);
 
         tl
-          .to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          .to(icons, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          .add( sidewaysHalfClose(), "+=0.5");
+          .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          .to(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          .add( sidewaysHalfClose(), "-=0.5");
 
         return tl;
     });
@@ -307,9 +308,9 @@ $(document).ready(function() {
         console.log(iconly);
 
         tl
-          .to(mainSubhead, 0.5, {delay: 0.5, autoAlpha: 0, ease: Power2.easeInOut})
-          .to(icons, 0.5, {autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          .add( sidewaysHalfClose(), "+=0.5");
+          .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+          .to(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+          .add( sidewaysHalfClose(), "-=0.5");
 
         return tl;
     });
@@ -365,8 +366,8 @@ $(document).ready(function() {
       .set(wholeThing, {autoAlpha: 0})
       .set(mainSubhead, {autoAlpha: 0})
       .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
-      .to(mainSubhead, .5, {y: 1, delay: .8, autoAlpha: 1, ease:Power3.easeIn})
-      .to(wholeThing, .5, {y: 1, autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
+      .to(mainSubhead, .5, {delay: .8, autoAlpha: 1, ease:Power3.easeIn})
+      .to(wholeThing, .5, {autoAlpha: 1, ease:Power3.easeIn}, '-=0.5');
 
     // masterTl.timeScale(0.5);
 
