@@ -73,7 +73,7 @@ $(document).ready(function() {
             .add( sideways() )
             .add( upDownHalfOpen() );  
 
-        redTl.timeScale(1.3);
+        redTl.timeScale(1.2);
         return redTl;
     });
 
@@ -90,6 +90,7 @@ $(document).ready(function() {
             .add( upDown() )
             .add( sidewaysHalfOpen() );
 
+        purpleTl.timeScale(1.2);
         return purpleTl;
     });
 
@@ -104,6 +105,7 @@ $(document).ready(function() {
             .add( upDown() )
             .add( sidewaysHalfOpen() );
 
+        blueTl.timeScale(1.2);
         return blueTl;
     });
 
@@ -119,6 +121,7 @@ $(document).ready(function() {
             .add( sideways() )
             .add( upDownHalfOpen() );
 
+        greenTl.timeScale(1.2);
         return greenTl;
     });
 
@@ -143,16 +146,16 @@ $(document).ready(function() {
           $( "#purple" ).css( "cursor", "auto" );
           $( "#green" ).css( "cursor", "auto" );
 
-
           tl
-            .set(containerNumbers, {css: {display: "block"}})
-            .fromTo(mainSubhead.text("Pick a Number"), .3, {scale: 0.2, autoAlpha:0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(redNumster.text(numTopLeft), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(blueNumster.text(numTopRight), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(purpleNumster.text(numBottomLeft), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together")
-            .fromTo(greenNumster.text(numBottomRight), .3, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "together");
+            .set(containerNumbers, {css: {display: "block", visibility: "hidden"}})
+            .set(redNumster.text(numTopLeft), {css: {visibility: "visible"}})
+            .set(blueNumster.text(numTopRight), {css: {visibility: "visible"}})
+            .set(purpleNumster.text(numBottomLeft), {css: {visibility: "visible"}})
+            .set(greenNumster.text(numBottomRight), {css: {visibility: "visible"}})
+            .fromTo(containerNumbers, 0.5, {scale: 0.2, autoAlpha:0}, {scale: 1.0, transformOrigin: "50% 50%", autoAlpha: 1, ease: Power2.easeInOut})
+            .fromTo(mainSubhead.text("Pick a Number"), .5, {scale: 0.2, autoAlpha:0}, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5");
 
-      tl.timeScale(.3);
+      tl.timeScale(1.0);
       return tl;
     }
 
@@ -230,7 +233,7 @@ $(document).ready(function() {
         tl.add( upDownHalfOpen() );
       }
 
-      tl.timeScale(1.3);
+      tl.timeScale(1.2);
       return tl;
     }
 
@@ -343,7 +346,7 @@ $(document).ready(function() {
         tl.add( upDownHalfOpen() );
       }
 
-      tl.timeScale(1.3);
+      tl.timeScale(1.2);
       return tl;
     }
 
