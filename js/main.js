@@ -77,7 +77,7 @@ $(document).ready(function() {
         return redTl;
     });
 
-    $('#purple').on('click', function() {
+    $("#purple").on('click', function() {
         color = 'purple';
         var purpleTl = new TimelineMax({onComplete: addNumbers});
 
@@ -94,7 +94,7 @@ $(document).ready(function() {
         return purpleTl;
     });
 
-    $('#blue').on('click', function() {
+    $("#blue").on('click', function() {
         color = 'blue';
         var blueTl = new TimelineMax({onComplete: addNumbers});
 
@@ -109,7 +109,7 @@ $(document).ready(function() {
         return blueTl;
     });
 
-    $('#green').on('click', function() {
+    $("#green").on('click', function() {
         color = 'green';
         var greenTl = new TimelineMax({onComplete: addNumbers});
 
@@ -127,7 +127,7 @@ $(document).ready(function() {
 
     // 88888888888888888888888888888
 
-    function addNumbers() {
+    function addNumbersOther() {
       var containerNumbers = $("#containerNumbers"),
           redNumster = $( ".top-left" ),
           blueNumster = $( ".top-right" ),
@@ -159,7 +159,7 @@ $(document).ready(function() {
       return tl;
     }
 
-    function addNumbersOther() {
+    function addNumbers() {
       var containerNumbers = $("#containerNumbers"),
           redNumster = $( ".top-left" ).text(numTopLeft),
           blueNumster = $( ".top-right" ).text(numTopRight),
@@ -187,50 +187,50 @@ $(document).ready(function() {
       return tl;
     }
 
-    $('#redNum').on('click', function() {
+    $("#redNum").on('click', function() {
         num = numTopLeft;
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "-=0.2");
+          tl.add( sidewaysHalfClose(), "+=0.1");
 
         return tl;
     });
 
-    $('#blueNum').on('click', function() {
+    $("#blueNum").on('click', function() {
         num = numTopRight;
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.2");
+          tl.add( sidewaysHalfClose(), "+=0.1");
           
         return tl;
     });
 
-    $('#purpleNum').on('click', function() {
+    $("#purpleNum").on('click', function() {
         num = numBottomLeft;
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.2");
+          tl.add( sidewaysHalfClose(), "+=0.1");
           
         return tl;
     });
 
-    $('#greenNum').on('click', function() {
+    $("#greenNum").on('click', function() {
         num = numBottomRight;
 
         var tl= new TimelineMax({onComplete: part2Nums}); 
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.2");
+          tl.add( sidewaysHalfClose(), "+=0.1");
           
         return tl;
     });
@@ -350,7 +350,7 @@ $(document).ready(function() {
       console.log(iconly);
 
       var iconlyNum = iconly.length,
-          tl= new TimelineMax({onComplete: theChoices}); 
+          tl= new TimelineMax({onComplete: theDeterminer}); 
 
       console.log(iconlyNum);
 
@@ -378,7 +378,7 @@ $(document).ready(function() {
       return tl;
     }
 
-    function theChoices() {
+    function theDeterminer() {
       console.log(color);
       console.log(num);
       console.log(iconly);
@@ -387,13 +387,15 @@ $(document).ready(function() {
       $("#deterIcon").text(iconly);
 
 
-      var tl = new TimelineMax();
+      var determiner = $("#determiner"),
+          tl = new TimelineMax();
 
       tl
-        // .to(wholeThing, .4, {y: -80, autoAlpha: 0, ease:Power2.easeInOut});
-        // .to(wholeThing, .5, {scale: 0.5, y: -80, autoAlpha: .5, ease:Power2.easeInOut});
+        .set(determiner, {css: {display: "block", visibility: "hidden"}})
         .to(wholeThing, .5, {scale: 0.2, y: -290, rotation: 180, ease:Power2.easeInOut})
-        .to(inside, .5, {autoAlpha: 0, ease:Power2.easeInOut}, "-=0.5");
+        .to(inside, .5, {autoAlpha: 0, ease:Power2.easeInOut}, "-=0.5")
+        .fromTo(determiner, 0.5, {autoAlpha:0}, {autoAlpha: 1, ease: Power2.easeInOut});
+
     }
 
     // 88888888888888888888888888888
