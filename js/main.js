@@ -275,7 +275,7 @@ $(document).ready(function() {
       // debugger;
       tl
         .fromTo(mainSubhead.text("Pick a Thing"), 0.5, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut})
-        .fromTo(icons, 0.5, {scale: 0.2, autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease: Power2.easeInOut}, "-=0.5");
+        .fromTo(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0}, {scale: 1.0, autoAlpha: 1, ease: Power2.easeInOut}, "-=0.5");
 
       return tl;
     }
@@ -385,8 +385,12 @@ $(document).ready(function() {
       $("#deterColor").text(color);
       $("#deterNum").text(num);
       $("#deterIcon").text(iconly);
+      
+      // $("#containerNumbers").html("<p>amy ham amy ham</p>");
+      // $("div[id=containerNumbers]").css("border", "2px solid red");
+      // alert($("#containerNumbers").html());
 
-      var determiner = $("#determiner"),
+      var determiner = $("#deterFortune"),
           tl = new TimelineMax({onComplete: theFortune});
 
       tl
@@ -401,6 +405,15 @@ $(document).ready(function() {
 
     function theFortune() {
       console.log("almost there ya hoo baby");
+      $("#deterFortune").html("<h2>Wheresoever you go, go with all your heart.</h2>");
+
+      var fortune = $("#deterFortune"),
+          tl = new TimelineMax();
+
+      tl
+        .fromTo(fortune, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-150%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut});
+      // alert($("#deterFortune").html());
+      return tl;
     }
 
     // 88888888888888888888888888888
