@@ -194,7 +194,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.1");
+          tl.add( sidewaysHalfClose() );
 
         return tl;
     });
@@ -206,7 +206,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.1");
+          tl.add( sidewaysHalfClose() );
           
         return tl;
     });
@@ -230,7 +230,7 @@ $(document).ready(function() {
 
           tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          tl.add( sidewaysHalfClose(), "+=0.1");
+          tl.add( sidewaysHalfClose(), "-=0.5");
           
         return tl;
     });
@@ -292,7 +292,7 @@ $(document).ready(function() {
         tl
           .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           .to(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          .add( sidewaysHalfClose(), "-=0.5");
+          .add( sidewaysHalfClose() );
 
         // var iconStuff = [tl, iconly] ask tess
         return tl;
@@ -309,7 +309,7 @@ $(document).ready(function() {
         tl
           .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
           .to(icons, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-          .add( sidewaysHalfClose(), "-=0.5");
+          .add( sidewaysHalfClose() );
 
         return tl;
     });
@@ -411,8 +411,8 @@ $(document).ready(function() {
           tl = new TimelineMax();
 
       tl
-        .fromTo(fortune, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-150%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut});
-      // alert($("#deterFortune").html());
+        .fromTo(fortune, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-220%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut});
+        
       return tl;
     }
 
