@@ -62,67 +62,65 @@ $(document).ready(function() {
   }
   // Flaps moving functions end
 
-  $("#red").on('click', function() {
-    color = 'red';
-    var redTl = new TimelineMax({onComplete: addNumbers});
+  // picked color functions start
+  $("#red").on("click", function() {
+    color = "red";
+    var tl = new TimelineMax({onComplete: addNumbers});
 
-    redTl
-    .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
-    .add( upDown() )
-    .add( sideways() )
-    .add( upDownHalfOpen() );  
-
-    redTl.timeScale(1.2);
-    return redTl;
+    tl
+      .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
+      .add( upDown() )
+      .add( sideways() )
+      .add( upDownHalfOpen() )
+      .timeScale(1.2);
+    return tl;
   });
 
-  $("#purple").on('click', function() {
-    color = 'purple';
-    var purpleTl = new TimelineMax({onComplete: addNumbers});
+  $("#purple").on("click", function() {
+    color = "purple";
+    var tl = new TimelineMax({onComplete: addNumbers});
 
-    purpleTl
+    tl
       .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
       .add( upDown() )
       .add( sideways() )
       .add( upDown() )
       .add( sideways() )
       .add( upDown() )
-      .add( sidewaysHalfOpen() );
-
-    purpleTl.timeScale(1.2);
-    return purpleTl;
+      .add( sidewaysHalfOpen() )
+      .timeScale(1.2);
+    return tl;
   });
 
-  $("#blue").on('click', function() {
-    color = 'blue';
-    var blueTl = new TimelineMax({onComplete: addNumbers});
+  $("#blue").on("click", function() {
+    color = "blue";
+    var tl = new TimelineMax({onComplete: addNumbers});
 
-    blueTl
+    tl
       .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
       .add( upDown() )
       .add( sideways() )
       .add( upDown() )
-      .add( sidewaysHalfOpen() );
-
-    blueTl.timeScale(1.2);
-    return blueTl;
+      .add( sidewaysHalfOpen() )
+      .timeScale(1.2);
+    return tl;
   });
 
-  $("#green").on('click', function() {
-    color = 'green';
-    var greenTl = new TimelineMax({onComplete: addNumbers});
+  $("#green").on("click", function() {
+    color = "green";
+    var tl = new TimelineMax({onComplete: addNumbers});
 
-    greenTl
+    tl
       .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
       .add( upDown() )
       .add( sideways() )
       .add( upDown() )
       .add( sideways() )
-      .add( upDownHalfOpen() );
-
-    greenTl.timeScale(1.2);
-    return greenTl;
+      .add( upDownHalfOpen() )
+      .timeScale(1.2);
+    return tl;
   });
+// picked color functions end
 
   function addNumbers() {
     var containerNumbers = $("#containerNumbers"),
