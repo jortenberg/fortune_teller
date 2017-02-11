@@ -14,11 +14,16 @@ $(document).ready(function() {
   numBottomRight = getRandomInt(12, 15),
   icons = $("#icons" + getRandomInt(1, 4));
 
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
+// Flaps moving functions start
   function sideways() {
     var tl = new TimelineMax();
-    tl.fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
-    tl.to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
+    tl
+      .fromTo(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
+      .to(inside, .3, {scaleX: 0, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
     return tl;
   }
 
@@ -36,9 +41,9 @@ $(document).ready(function() {
 
   function upDown() {
     var tl = new TimelineMax();
-    tl.fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, 
-      {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
-    tl.to(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
+    tl
+      .fromTo(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9}, {scaleY: 1, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut})
+      .to(inside, .3, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: .9, ease:Power2.easeInOut});
     return tl;
   }
 
@@ -50,14 +55,12 @@ $(document).ready(function() {
 
   function upDownHalfClose() {
     var tl = new TimelineMax();
-    tl.set(inside, {scaleX: 1, scaleY: 1, autoAlpha: 1})
-    tl.fromTo(inside, .3, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1}, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
+    tl
+      .set(inside, {scaleX: 1, scaleY: 1, autoAlpha: 1})
+      .fromTo(inside, .3, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1}, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
     return tl;
   }
-
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  // Flaps moving functions end
 
   $("#red").on('click', function() {
     color = 'red';
@@ -128,8 +131,6 @@ $(document).ready(function() {
     purpleNumster = $( ".bottom-left" ).text(numBottomLeft),
     greenNumster = $( ".bottom-right" ).text(numBottomRight),
     tl = new TimelineMax();
-
-    console.log("hello numbers function with ease baby baby");
 
     $( "#red" ).off();
     $( "#blue" ).off();
