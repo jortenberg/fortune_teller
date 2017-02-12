@@ -1,24 +1,23 @@
 $(document).ready(function() {
   var h1 = $("h1"),
-  wholeThing = $("#wholething"),
-  red = $("#red"),
-  inside = $("#inside"),
-  mainSubhead = $("#mainSubhead"),
-  masterTl = new TimelineMax(),
-  color,
-  num,
-  iconly,
-  numTopLeft = getRandomInt(4, 7),
-  numTopRight = getRandomInt(1, 3),
-  numBottomLeft = getRandomInt(8, 11),
-  numBottomRight = getRandomInt(12, 15),
-  icons = $("#icons" + getRandomInt(1, 4));
+      wholeThing = $("#wholething"),
+      inside = $("#inside"),
+      mainSubhead = $("#mainSubhead"),
+      masterTl = new TimelineMax(),
+      color,
+      num,
+      iconly,
+      numTopLeft = getRandomInt(4, 7),
+      numTopRight = getRandomInt(1, 3),
+      numBottomLeft = getRandomInt(8, 11),
+      numBottomRight = getRandomInt(12, 15),
+      icons = $("#icons" + getRandomInt(1, 4));
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-// Flaps moving functions start
+// Flaps moving start
   function sideways() {
     var tl = new TimelineMax();
     tl
@@ -60,7 +59,7 @@ $(document).ready(function() {
       .fromTo(inside, .3, {scaleX: 1, scaleY: 1, transformOrigin: "50% 50%", autoAlpha: 1}, {scaleY: 0, scaleX: 1, transformOrigin: "50% 50%", autoAlpha: 1, ease:Power2.easeInOut});
     return tl;
   }
-  // Flaps moving functions end
+  // Flaps moving end
 
   //color start
   $("#red").on('click', function() {
@@ -89,25 +88,25 @@ $(document).ready(function() {
     tl.to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1");
 
     if (number%2 == 0) {
-      console.log("this is the even scenario");
-
+      // this is the even scenario
       for (var i = 0; i < (number-2)/2; i++) {
-        tl.add( upDown() )
-        tl.add( sideways() );
+        tl
+          .add( upDown() )
+          .add( sideways() );
       }
-      tl.add( upDown() )
-      tl.add( sidewaysHalfOpen() );
+      tl
+        .add( upDown() )
+        .add( sidewaysHalfOpen() );
     }
     else {
-      console.log("this is the odd scenario");
-
+      // this is the odd scenario
       for (var i = 0; i < (number-1)/2; i++) {
-        tl.add( upDown() )
-        tl.add( sideways() );
+        tl
+          .add( upDown() )
+          .add( sideways() );
       }
       tl.add( upDownHalfOpen() );
     }
-
     tl.timeScale(1.0);
     return tl;
   }
@@ -176,25 +175,25 @@ $(document).ready(function() {
     var tl= new TimelineMax({onComplete: addIcons});
 
     if (num%2 == 0) {
-      console.log("this is the even scenario");
-
+      // this is the even scenario
       for (var i = 0; i < (num-2)/2; i++) {
-        tl.add( upDown() )
-        tl.add( sideways() );
+        tl
+          .add( upDown() )
+          .add( sideways() );
       }
-      tl.add( upDown() )
-      tl.add( sidewaysHalfOpen() );
+      tl
+        .add( upDown() )
+        .add( sidewaysHalfOpen() );
     }
     else {
-      console.log("this is the odd scenario");
-
+      // this is the odd scenario
       for (var i = 0; i < (num-1)/2; i++) {
-        tl.add( upDown() )
-        tl.add( sideways() );
+        tl
+          .add( upDown() )
+          .add( sideways() );
       }
       tl.add( upDownHalfOpen() );
     }
-
     tl.timeScale(1.0);
     return tl;
   }
@@ -256,8 +255,7 @@ $(document).ready(function() {
         tl= new TimelineMax({onComplete: theDeterminer});
 
     if (iconlyNum%2 == 0) {
-      console.log("this is the even scenario");
-
+      // this is the even scenario
       for (var i = 0; i < (iconlyNum-2)/2; i++) {
         tl
           .add( upDown() )
@@ -268,8 +266,7 @@ $(document).ready(function() {
         .add( sidewaysHalfOpen() );
     }
     else {
-      console.log("this is the odd scenario");
-
+      // this is the odd scenario
       for (var i = 0; i < (iconlyNum-1)/2; i++) {
         tl
           .add( upDown() )
@@ -277,10 +274,10 @@ $(document).ready(function() {
       }
       tl.add( upDownHalfOpen() );
     }
-
     tl.timeScale(1.0);
     return tl;
   }
+// icons end
 
   function theDeterminer() {
     $("#deterColor").text(color);
