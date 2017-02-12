@@ -63,9 +63,8 @@ $(document).ready(function() {
   // Flaps moving functions end
 
   //color start
-
   $("#red").on('click', function() {
-    color = 'red';
+    color = "red";
     animateColor(color.length);
   });
 
@@ -114,13 +113,14 @@ $(document).ready(function() {
   }
 // color end
 
+// numbers start
   function addNumbers() {
     var containerNumbers = $("#containerNumbers"),
-    redNumster = $( ".top-left" ).text(numTopLeft),
-    blueNumster = $( ".top-right" ).text(numTopRight),
-    purpleNumster = $( ".bottom-left" ).text(numBottomLeft),
-    greenNumster = $( ".bottom-right" ).text(numBottomRight),
-    tl = new TimelineMax();
+        redNumster = $( ".top-left" ).text(numTopLeft),
+        blueNumster = $( ".top-right" ).text(numTopRight),
+        purpleNumster = $( ".bottom-left" ).text(numBottomLeft),
+        greenNumster = $( ".bottom-right" ).text(numBottomRight),
+        tl = new TimelineMax();
 
     $( "#red" ).off();
     $( "#blue" ).off();
@@ -142,60 +142,42 @@ $(document).ready(function() {
 
   $("#redNum").on('click', function() {
     num = numTopLeft;
-
-    var tl = new TimelineMax({onComplete: part2Nums}); 
-
-    tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
-    tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-    tl.add( sidewaysHalfClose(), "-=0.2");
-
-    return tl;
+    animateNumFirst();
   });
 
   $("#blueNum").on('click', function() {
     num = numTopRight;
-
-    var tl = new TimelineMax({onComplete: part2Nums});
-
-    tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
-    tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-    tl.add( sidewaysHalfClose() );
-
-    return tl;
+    animateNumFirst();
   });
 
   $("#purpleNum").on('click', function() {
     num = numBottomLeft;
-
-    var tl= new TimelineMax({onComplete: part2Nums}); 
-
-    tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
-    tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-    tl.add( sidewaysHalfClose(), "+=0.1");
-
-    return tl;
+    animateNumFirst();
   });
 
   $("#greenNum").on('click', function() {
     num = numBottomRight;
-
-    var tl= new TimelineMax({onComplete: part2Nums});
-
-    tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
-    tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
-    tl.add( sidewaysHalfClose(), "-=0.5");
-
-    return tl;
+    animateNumFirst();
   });
 
-  function part2Nums() {
 
-    console.log(num);
+  function animateNumFirst() {
+    var containerNumbers = $("#containerNumbers"),
+        tl = new TimelineMax({onComplete: animateNumSecond});
 
-    var tl= new TimelineMax({onComplete: addIcons}); 
+    tl
+      .to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
+      .to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
+      .add( sidewaysHalfClose() );
+
+    return tl;
+  }
+
+  function animateNumSecond() {
+    var tl= new TimelineMax({onComplete: addIcons});
 
     if (num%2 == 0) {
-      console.log("this is the even scenario numbers");
+      console.log("this is the even scenario");
 
       for (var i = 0; i < (num-2)/2; i++) {
         tl.add( upDown() )
@@ -205,7 +187,7 @@ $(document).ready(function() {
       tl.add( sidewaysHalfOpen() );
     }
     else {
-      console.log("this is the odd scenario numbers");
+      console.log("this is the odd scenario");
 
       for (var i = 0; i < (num-1)/2; i++) {
         tl.add( upDown() )
@@ -214,10 +196,10 @@ $(document).ready(function() {
       tl.add( upDownHalfOpen() );
     }
 
-    tl.timeScale(1.2);
+    tl.timeScale(1.1);
     return tl;
   }
-
+// numbers end
 
   function addIcons() {
     var tl = new TimelineMax();
