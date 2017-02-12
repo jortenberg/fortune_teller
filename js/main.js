@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var h1 = $("h1"),
-      wholeThing = $("#wholething"),
+      origami = $("#origami"),
       inside = $("#inside"),
       mainSubhead = $("#mainSubhead"),
       masterTl = new TimelineMax(),
@@ -289,7 +289,7 @@ $(document).ready(function() {
 
     tl
       .set(determiner, {css: {display: "block", visibility: "hidden"}})
-      .to(wholeThing, .5, {scale: 0.2, y: "-80%", rotation: 180, ease:Power2.easeInOut})
+      .to(origami, .5, {scale: 0.2, y: "-80%", rotation: 180, ease:Power2.easeInOut})
       .to(inside, .5, {autoAlpha: 0, ease:Power2.easeInOut}, "-=0.5")
       .fromTo(determiner, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-100%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut})
       .to(determiner, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-100%", ease: Power2.easeInOut}, "+=2.0");
@@ -310,11 +310,11 @@ $(document).ready(function() {
   }
 
   masterTl
-  .set(wholeThing, {autoAlpha: 0})
+  .set(origami, {autoAlpha: 0})
   .set(mainSubhead, {autoAlpha: 0})
   .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
   .to(mainSubhead, .5, {delay: .8, autoAlpha: 1, ease:Power3.easeIn})
-  .to(wholeThing, .5, {autoAlpha: 1, ease:Power3.easeIn}, "-=0.5");
+  .to(origami, .5, {autoAlpha: 1, ease:Power3.easeIn}, "-=0.5");
 });
 
 
