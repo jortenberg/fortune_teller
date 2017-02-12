@@ -62,65 +62,57 @@ $(document).ready(function() {
   }
   // Flaps moving functions end
 
-  // picked color functions start
-  $("#red").on("click", function() {
-    color = "red";
-    var tl = new TimelineMax({onComplete: addNumbers});
+  //color start
 
-    tl
-      .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
-      .add( upDown() )
-      .add( sideways() )
-      .add( upDownHalfOpen() )
-      .timeScale(1.2);
-    return tl;
+  $("#red").on('click', function() {
+    color = 'red';
+    animateColor(color.length);
   });
 
   $("#purple").on("click", function() {
     color = "purple";
-    var tl = new TimelineMax({onComplete: addNumbers});
-
-    tl
-      .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
-      .add( upDown() )
-      .add( sideways() )
-      .add( upDown() )
-      .add( sideways() )
-      .add( upDown() )
-      .add( sidewaysHalfOpen() )
-      .timeScale(1.2);
-    return tl;
+    animateColor(color.length);
   });
 
   $("#blue").on("click", function() {
     color = "blue";
-    var tl = new TimelineMax({onComplete: addNumbers});
-
-    tl
-      .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
-      .add( upDown() )
-      .add( sideways() )
-      .add( upDown() )
-      .add( sidewaysHalfOpen() )
-      .timeScale(1.2);
-    return tl;
+    animateColor(color.length);
   });
 
   $("#green").on("click", function() {
     color = "green";
-    var tl = new TimelineMax({onComplete: addNumbers});
-
-    tl
-      .to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1")
-      .add( upDown() )
-      .add( sideways() )
-      .add( upDown() )
-      .add( sideways() )
-      .add( upDownHalfOpen() )
-      .timeScale(1.2);
-    return tl;
+    animateColor(color.length);
   });
-// picked color functions end
+
+  function animateColor(number) {
+    var tl= new TimelineMax({onComplete: addNumbers});
+
+    tl.to(mainSubhead, .3, {delay: .5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut}, "-=1");
+
+    if (number%2 == 0) {
+      console.log("this is the even scenario");
+
+      for (var i = 0; i < (number-2)/2; i++) {
+        tl.add( upDown() )
+        tl.add( sideways() );
+      }
+      tl.add( upDown() )
+      tl.add( sidewaysHalfOpen() );
+    }
+    else {
+      console.log("this is the odd scenario");
+
+      for (var i = 0; i < (number-1)/2; i++) {
+        tl.add( upDown() )
+        tl.add( sideways() );
+      }
+      tl.add( upDownHalfOpen() );
+    }
+
+    tl.timeScale(1.2);
+    return tl;
+  }
+// color end
 
   function addNumbers() {
     var containerNumbers = $("#containerNumbers"),
@@ -187,7 +179,7 @@ $(document).ready(function() {
   $("#greenNum").on('click', function() {
     num = numBottomRight;
 
-    var tl= new TimelineMax({onComplete: part2Nums}); 
+    var tl= new TimelineMax({onComplete: part2Nums});
 
     tl.to(mainSubhead, 0.5, {delay: 0.5, scale: 0.2, autoAlpha: 0, ease: Power2.easeInOut})
     tl.to(containerNumbers, 0.5, {scale: 0.2, transformOrigin: "50% 50%", autoAlpha: 0, ease: Power2.easeInOut}, "-=0.5")
