@@ -310,11 +310,17 @@ $(document).ready(function() {
   }
 
   masterTl
-  .set(origami, {autoAlpha: 0})
-  .set(mainSubhead, {autoAlpha: 0})
-  .to(h1, .4, {y: -80, delay: 2.5, autoAlpha: 0, ease:Power3.easeIn})
-  .to(mainSubhead, .5, {delay: .8, autoAlpha: 1, ease:Power3.easeIn})
-  .to(origami, .5, {autoAlpha: 1, ease:Power3.easeIn}, "-=0.5");
+    .set(origami, {scale: 0.1, y: -190, autoAlpha: 0})
+    .set(mainSubhead, {transformOrigin: "50% 50%", scale: 0.2, autoAlpha: 0})
+    .set(h1, {transformOrigin: "50% 50%", scale: 0.2, autoAlpha:0})
+
+    .to(origami, 0.5, {scale: 0.2, y: -190, autoAlpha: 1.0, ease:Power2.easeInOut})
+    .to(h1, 0.5, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5")
+    .to(h1, 0.5, {delay: 2.5, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
+
+    .to(origami, 1.5, {scale: 1.0, y: 0, rotation: 360, autoAlpha: 1.0, ease:Power2.easeInOut})
+    .to(mainSubhead, 0.5, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "-=0.5");
+
 });
 
 

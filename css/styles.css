@@ -111,7 +111,8 @@ h1 {
   font-size: 2.8em;
   text-align: center;
   line-height: 1.2em;
-/*  margin: 20% auto;*/
+  visibility: hidden;
+
 }
 
 h2 {
