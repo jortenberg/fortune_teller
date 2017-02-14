@@ -111,8 +111,10 @@ h1 {
   font-size: 2.8em;
   text-align: center;
   line-height: 1.2em;
-  visibility: hidden;
+}
 
+.intro {
+  visibility: hidden;
 }
 
 h2 {
