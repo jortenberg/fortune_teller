@@ -108,7 +108,7 @@ $(document).ready(function() {
       }
       tl.add( upDownHalfOpen() );
     }
-    tl.timeScale(1.0);
+    tl.timeScale(1.2);
     return tl;
   }
 // color end
@@ -195,7 +195,7 @@ $(document).ready(function() {
       }
       tl.add( upDownHalfOpen() );
     }
-    tl.timeScale(1.0);
+    tl.timeScale(1.2);
     return tl;
   }
 // numbers end
@@ -275,7 +275,7 @@ $(document).ready(function() {
       }
       tl.add( upDownHalfOpen() );
     }
-    tl.timeScale(1.0);
+    tl.timeScale(1.2);
     return tl;
   }
 // icons end
@@ -319,8 +319,8 @@ $(document).ready(function() {
     .to(intro, 0.5, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5")
     .to(intro, 0.5, {delay: 2.5, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
 
-    .to(origami, 1.5, {scale: 1.0, y: 0, rotation: 360, autoAlpha: 1.0, ease:Power2.easeInOut})
-    .to(mainSubhead, 0.5, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "-=0.5");
+    .to(origami, 1.2, {scale: 1.0, y: 0, rotation: 360, autoAlpha: 1.0, ease:Power2.easeInOut})
+    .to(mainSubhead, 0.5, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "+=0.5");
 
 });
 
