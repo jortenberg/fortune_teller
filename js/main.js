@@ -7,12 +7,13 @@ $(document).ready(function() {
       color,
       num,
       iconly,
-      numTopLeft = getRandomInt(4, 7),
+      numTopLeft = getRandomInt(4, 6),
       numTopRight = getRandomInt(1, 3),
-      numBottomLeft = getRandomInt(8, 11),
-      numBottomRight = getRandomInt(12, 15),
+      numBottomLeft = getRandomInt(7, 9),
+      numBottomRight = getRandomInt(10, 12),
       icons = $("#icons" + getRandomInt(1, 4));
-            
+
+  document.addEventListener("touchstart", function(){}, true);       
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -290,10 +291,10 @@ $(document).ready(function() {
 
     tl
       .set(determiner, {css: {display: "block", visibility: "hidden"}})
-      .to(origami, .5, {scale: 0.2, y: "-80%", rotation: 180, ease:Power2.easeInOut})
+      .to(origami, 1.2, {scale: 0.2, y: "-70%", rotation: -360, ease:Power2.easeInOut})
       .to(inside, .5, {autoAlpha: 0, ease:Power2.easeInOut}, "-=0.5")
-      .fromTo(determiner, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-100%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut})
-      .to(determiner, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-100%", ease: Power2.easeInOut}, "+=2.0");
+      .fromTo(determiner, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-90%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut})
+      .to(determiner, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-90%", ease: Power2.easeInOut}, "+=2.2");
 
     return tl;
   }
@@ -305,7 +306,7 @@ $(document).ready(function() {
         fortune = "<h2>" + fortunes[fortuneNum] + "</h2>";
         deterFortune = $("#deterFortune").html(fortune);
 
-    tl.fromTo(deterFortune, 0.5, {autoAlpha:0, scale: 0.2, transformOrigin: "50% 50%", y: "-130%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut});
+    tl.fromTo(deterFortune, 0.5, {autoAlpha:0, scale: 0.2, y: "-170%"}, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut});
 
     return tl;
   }
@@ -317,7 +318,7 @@ $(document).ready(function() {
 
     .to(origami, 0.5, {scale: 0.2, y: -190, autoAlpha: 1.0, ease:Power2.easeInOut})
     .to(intro, 0.5, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5")
-    .to(intro, 0.5, {delay: 2.5, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
+    .to(intro, 0.5, {delay: 3.0, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
 
     .to(origami, 1.2, {scale: 1.0, y: 0, rotation: 360, autoAlpha: 1.0, ease:Power2.easeInOut})
     .to(mainSubhead, 0.5, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "+=0.3");

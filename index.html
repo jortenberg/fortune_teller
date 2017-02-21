@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Furtune Teller</title>
+        <title>Fortune Teller</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,14 +12,19 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/350.css" media="(min-width: 350px)">
+        <link rel="stylesheet" href="css/400.css" media="(min-width: 400px)">
+        <link rel="stylesheet" href="css/450.css" media="(min-width: 450px)">
+
+
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="https://use.typekit.net/qzt6yny.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body>
-      <div class="centered">
-        <h1 class="intro">Hello.</h1>
-        <h1 class="intro">Welcome to Fortune Teller!</h1>
+      <div class="intro">
+        <h1>Hello.</h1>
+        <h1>Welcome to Fortune Teller!</h1>
       </div>
 
       <div class="centered">
@@ -224,14 +229,10 @@
         </div>
       </div>
 
-
-
-
     <!-- always use attr:{} if you want to animate a svg attribute because by default GSAP will assume its a css property first.
         or to be really anal always use this specifice syntax css:{} or attr:{} 
         example
         .to(svgDot, 0.7, {attr:{cx: 100, cy: 100}, ease:Power2.easeInOut}, '-=0.7')-->
-
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
