@@ -8,7 +8,7 @@ var fortunes = ["You cannot love life until you live the life you love.",
 "Enjoy the good luck a companion brings you.",
 "A chance meeting opens new doors to success and friendship.",
 "You learn from your mistakes... You will learn a lot today.",
-"What ever you're goal is in life, embrace it visualize it, and for it will be yours.",
+"What ever you&rsquo;re goal is in life, embrace it visualize it, and for it will be yours.",
 "Meeting adversity well is the source of your strength.",
 "A dream you have will come true.",
 "You will become great if you believe in yourself.",
@@ -35,11 +35,11 @@ var fortunes = ["You cannot love life until you live the life you love.",
 "Bread today is better than cake tomorrow.",
 "A feeling is an idea with roots.",
 "Man is born to live and not prepare to live.",
-"It's all right to have butterflies in your stomach. Just get them to fly in formation.",
-"If you don't give something, you will not get anything.",
+"It&rsquo;s all right to have butterflies in your stomach. Just get them to fly in formation.",
+"If you don&rsquo;t give something, you will not get anything.",
 "The harder you try to not be like your parents, the more likely you will become them.",
 "You will think for yourself when you stop letting others think for you.",
-"Everything will be ok. Don't obsess. You must stay where you are for now.",
+"Everything will be ok. Don&rsquo;t obsess. You must stay where you are for now.",
 "If you love someone keep fighting for them.",
 "Do what you want, when you want, and you will be rewarded.",
 "The cooler you think you are the dumber you look.",
@@ -48,14 +48,22 @@ var fortunes = ["You cannot love life until you live the life you love.",
 "What breaks in a moment may take years to mend.",
 "You will be rewarded for your patience and understanding.",
 "Never miss a chance to keep your mouth shut.",
-"Nothing shows a man's character more than what he laughs at.",
+"Nothing shows a man&rsquo;s character more than what he laughs at.",
 "Never regret anything that made you smile.",
 "Love takes pratice.",
-"Don't take yourself so seriously, no one else does.",
-"You've got what it takes, but it will take everything you've got!",
+"Don&rsquo;t take yourself so seriously, no one else does.",
+"You&rsquo;ve got what it takes, but it will take everything you&rsquo;ve got!",
 "At this very moment you can change the rest of your life.",
 "Become who you are.",
+"Let your heart make your decisions - it does not get as confused as your head.",
+"Working hard will make you live a happy life.",
+"Try everything once, even the things you don&rsquo;t think you will like."
+"Shoot for the moon! If you miss you will still be amongst the stars."
 ];
+
+10
+15
+13
 
 function theFortune() {
   console.log("almost there ya hoo baby");
