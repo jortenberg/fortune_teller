@@ -120,7 +120,8 @@ h2 {
   line-height: 1.2em;
   text-align: center;
   font-weight: 400;
-  margin: .29em auto;
+  margin: .25em auto;
+  letter-spacing: 0.02em;
   /*background-color: rgba(186, 230, 255, 0.4);*/
 }
 
@@ -133,11 +134,12 @@ h3 {
   width: 2em;
 }
 
-h5 {
-  font-size: 1em;
-  font-weight: 300;
+h4 {
+  font-size: 1.1em;
+  font-weight: 400;
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 0.04em;
   margin: 0;
 }
 
