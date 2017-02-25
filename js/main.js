@@ -19,6 +19,13 @@ $(document).ready(function() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+// always use attr:{} if you want to animate a svg attribute because by default GSAP will assume its a css property first.
+//      or to be really anal always use this specifice syntax css:{} or attr:{} 
+//      example
+//      .to(svgDot, 0.7, {attr:{cx: 100, cy: 100}, ease:Power2.easeInOut}, '-=0.7')
+
+// How come in gsap documentation the css property values are sometimes in quotes and sometimes not in quotes?
+
 // Flaps moving start
   function sideways() {
     var tl = new TimelineMax();
@@ -307,7 +314,7 @@ $(document).ready(function() {
         deterFortune = $("#deterFortune").html(fortune),
         moveme = "-160%";
 
-        $("<h4>your fortune:</h4>").insertBefore("#deterFortune h2");
+        // $("<h4>your fortune:</h4>").insertBefore("#deterFortune h2");
 
         // $("<h4>your fortune:</h4>").insertAfter("#deterFortune h2");
 

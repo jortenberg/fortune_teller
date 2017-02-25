@@ -16,11 +16,11 @@
         <link rel="stylesheet" href="css/400.css" media="(min-width: 400px)">
         <link rel="stylesheet" href="css/450.css" media="(min-width: 450px)">
 
-
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="https://use.typekit.net/qzt6yny.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
+
     <body>
       <div class="intro">
         <h1>Hello.</h1>
@@ -229,23 +229,14 @@
         </div>
       </div>
 
-    <!-- always use attr:{} if you want to animate a svg attribute because by default GSAP will assume its a css property first.
-        or to be really anal always use this specifice syntax css:{} or attr:{} 
-        example
-        .to(svgDot, 0.7, {attr:{cx: 100, cy: 100}, ease:Power2.easeInOut}, '-=0.7')-->
+      <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+      <script src="js/plugins.js"></script>
 
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
+      <!--CDN for TweenMax-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+      <script src="js/main.js"></script>
 
-        <!--CDN link for  TweenMax-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-        <script src="js/main.js"></script>
 
-        <script>
-
-        // should I use a js linter? http://www.jslint.com/
-          
-        </script>
     </body>
 </html>
