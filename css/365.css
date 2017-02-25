@@ -1,19 +1,19 @@
 body {
-  font-size: 1em;
+  font-size: .9em;
 }
 
 #container {
 /*  background-color: rgba(21, 64, 255, 0.4);*/
-  width: 425px;
-  height: 525px;
+  width: 350px;
+  height: 450px;
 }
 
 #origami {
-  width: 350px;
+  width: 320px;
 }
 
 #containerNumbers {
 /*  background-color: rgba(153, 153, 153, 0.4);*/
-  width: 350px;
-  height: 350px;
+  width: 320px;
+  height: 320px;
 }
