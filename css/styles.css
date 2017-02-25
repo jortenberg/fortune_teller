@@ -143,6 +143,15 @@ h4 {
   margin: 0;
 }
 
+.intro {
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
 .top-left {
   bottom: 8%;
   right: 0;
@@ -179,24 +188,6 @@ h4 {
   position: relative;
 }
 
-.intro {
-  visibility: hidden;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-}
-
-#deterFortune {
-/*  position: relative;*/
-  display: none;
-  width: 100%;
-  /*left: 50%;*/
-  margin: 0 auto;
-/*  transform: translate(-50%, 0);*/
-}
-
 .centered {
   position: fixed;
   top: 50%;
@@ -212,14 +203,6 @@ h4 {
   height: 375px;
 }
 
-#inside {
-  visibility: hidden;
-}
-
-#icons1, #icons2, #icons3, #icons4 {
-  visibility: hidden;
-}
-
 #origami {
   position: absolute;
   visibility: hidden;
@@ -231,6 +214,23 @@ h4 {
   position: relative;
   visibility: hidden;
   margin: 5% auto;
+}
+
+#deterFortune {
+/*  position: relative;*/
+  display: none;
+  width: 100%;
+  /*left: 50%;*/
+  margin: 0 auto;
+/*  transform: translate(-50%, 0);*/
+}
+
+#inside {
+  visibility: hidden;
+}
+
+#icons1, #icons2, #icons3, #icons4 {
+  visibility: hidden;
 }
 
 .redIcon, .blueIcon, .purpleIcon, .greenIcon {
