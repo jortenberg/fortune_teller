@@ -61,10 +61,6 @@ var fortunes = ["You cannot love life until you live the life you love.",
 "Shoot for the moon! If you miss you will still be amongst the stars."
 ];
 
-10
-15
-13
-
 function theFortune() {
   console.log("almost there ya hoo baby");
 
