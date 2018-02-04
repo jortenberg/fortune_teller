@@ -312,8 +312,8 @@ $(document).ready(function() {
         tl = new TimelineMax(),
 
         deterFortune = $("#deterFortune").html("<h2>" + fortunes[fortuneNum] + "</h2>"),
-        eyebrow = $("<h4>your fortune</h4>").insertBefore(" #deterFortune h2 "),
-        goAgain = $("<h4>anchor tag</h4>").insertAfter(" #deterFortune h2 ");
+        // eyebrow = $("<h4>your fortune</h4>").insertBefore(" #deterFortune h2 "),
+        goAgain = $("<a href='http://www.jillortenberg.com/teller/'>Another go?</a>").insertAfter(" #deterFortune h2 ");
 
     $("#containerNumbers").remove();
 
@@ -322,10 +322,10 @@ $(document).ready(function() {
 
     tl
       .set(deterFortune, {scale: 0.2, y: "25%", autoAlpha: 0})
-      .set(eyebrow, {scale: 0.2, y: "25%", autoAlpha: 0})
+      // .set(eyebrow, {scale: 0.2, y: "25%", autoAlpha: 0})
       .set(goAgain, {scale: 0.2, autoAlpha: 0})
       .to(deterFortune, 1.0, {autoAlpha: 1, scale: 1.0, y: "25%", ease: Power2.easeInOut})
-      .to(eyebrow, 1.0, {autoAlpha: 1, scale: 1.0, y: "25%", ease: Power2.easeInOut}, "-=1.0")
+      // .to(eyebrow, 1.0, {autoAlpha: 1, scale: 1.0, y: "25%", ease: Power2.easeInOut}, "-=1.0")
       .to(goAgain, 1.0, {autoAlpha: 1, scale: 1.0, ease: Power2.easeInOut}, "+=2.0");
 
     return tl;
@@ -342,9 +342,20 @@ $(document).ready(function() {
     .to(intro, 0.5, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5")
     .to(intro, 0.5, {delay: 2.0, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
 
-    .to(origami, 1.1, {scale: 1.0, y: 0, rotation: "360", autoAlpha: 1.0, ease:Power2.easeInOut})
-    .to(mainSubhead, 0.5, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "+=0.1");
+    .to(origami, 1.5, {scale: 1.0, y: 0, rotation: "720", autoAlpha: 1.0, ease:Power2.easeInOut})
+    .to(mainSubhead, 0.4, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "+=0.18");
 
 });
+
+// .set(origami, {scale: 0.1, y: "-185", autoAlpha: 0})
+// .set(mainSubhead, {transformOrigin: "50% 50%", scale: 0.2, autoAlpha: 0})
+// .set(intro, {transformOrigin: "50% 50%", scale: 0.2, autoAlpha:0})
+
+// .to(origami, 0.5, {scale: 0.2, y: "-185", autoAlpha: 1.0, ease:Power2.easeInOut})
+// .to(intro, 0.5, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5")
+// .to(intro, 0.5, {delay: 2.0, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
+
+// .to(origami, 1.1, {scale: 1.0, y: 0, rotation: “360”, autoAlpha: 1.0, ease:Power2.easeInOut})
+// .to(mainSubhead, 0.4, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "+=0.1");
 
 

@@ -143,6 +143,10 @@ h4 {
   margin: 0;
 }
 
+a {
+  color: white;
+}
+
 .intro {
   visibility: hidden;
   position: fixed;
@@ -227,6 +231,30 @@ h4 {
   display: none;
   width: 100%;
   margin: 0 auto;
+}
+
+#deterFortune a {
+/*  background-color: blue;*/
+  font-weight: 200;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-top: 20%;
+  left: 50%;
+  text-align: center;
+}
+
+#deterFortune a:hover {
+  text-decoration: underline;
+}
+
+#deterFortune a:focus {
+  text-decoration: underline;
+}
+
+#deterFortune a:active {
+  text-decoration: underline;
 }
 
 #inside {
