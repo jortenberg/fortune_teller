@@ -347,15 +347,4 @@ $(document).ready(function() {
 
 });
 
-// .set(origami, {scale: 0.1, y: "-185", autoAlpha: 0})
-// .set(mainSubhead, {transformOrigin: "50% 50%", scale: 0.2, autoAlpha: 0})
-// .set(intro, {transformOrigin: "50% 50%", scale: 0.2, autoAlpha:0})
-
-// .to(origami, 0.5, {scale: 0.2, y: "-185", autoAlpha: 1.0, ease:Power2.easeInOut})
-// .to(intro, 0.5, {scale: 1.0, autoAlpha: 1, ease:Power2.easeInOut}, "-=0.5")
-// .to(intro, 0.5, {delay: 2.0, scale: 0.2, autoAlpha: 0, ease:Power2.easeInOut})
-
-// .to(origami, 1.1, {scale: 1.0, y: 0, rotation: “360”, autoAlpha: 1.0, ease:Power2.easeInOut})
-// .to(mainSubhead, 0.4, {scale: 1.0, autoAlpha: 1.0, ease:Power2.easeInOut}, "+=0.1");
-
 

@@ -235,9 +235,9 @@ a {
 
 #deterFortune a {
 /*  background-color: blue;*/
-  font-weight: 200;
+  font-weight: 300;
   text-transform: uppercase;
-  text-decoration: none;
+  text-decoration: underline;
   letter-spacing: 0.08em;
   display: block;
   margin-top: 20%;
@@ -247,14 +247,17 @@ a {
 
 #deterFortune a:hover {
   text-decoration: underline;
+  font-weight: 400;
 }
 
 #deterFortune a:focus {
   text-decoration: underline;
+  font-weight: 400;
 }
 
 #deterFortune a:active {
   text-decoration: underline;
+  font-weight: 400;
 }
 
 #inside {
